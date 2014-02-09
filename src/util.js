@@ -38,3 +38,19 @@ function isElement(node) {
 function likeArray(nodes) {
     return typeof nodes.length == 'number';
 }
+
+function isType(type) {
+    return function(obj) {
+        return {}.toString.call(obj) == '[object ' + type + ']';
+    }
+}
+
+var isNumber   = isType('Number'),
+    isString   = isType('String'),
+    isObject   = isType('Object'),
+    isArray    = Array.isArray || isType('Array'),
+    isFunction = isType('Function');
+
+var isPlainObject = function(obj) {
+    return isObject(obj) && !isWindow(obj) && Object.getPrototypeOf(obj) == Object.prototype;
+};

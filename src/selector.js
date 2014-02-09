@@ -76,7 +76,7 @@ mix(node, {
     },
 
     filter: function(selector) {
-        if (S.isFunction(selector)) {
+        if (isFunction(selector)) {
             return $(filter.call(this, function(el) {
                 return selector.call(el, el);
             }));

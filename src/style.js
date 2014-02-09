@@ -22,7 +22,7 @@ function camelCase(name) {
 }
 
 function maybeAddPx(name, val) {
-    return S.isNumber(val) && !cssNumber[camelCase(name)] ? val + 'px' : val;
+    return isNumber(val) && !cssNumber[camelCase(name)] ? val + 'px' : val;
 }
 
 function getComputedStyle(el, name) {
@@ -51,11 +51,11 @@ mix(node, {
             ret = '';
 
         if (val == undefined) {
-            if (S.isString(name)) {
+            if (isString(name)) {
                 var el = this[0];
 
                 return el ? el.style[camelCase(name)] || getComputedStyle(el, name) : '';
-            } else if (S.isObject(name)) {
+            } else if (isObject(name)) {
                 for (key in name) {
                     ret += key + ':' + maybeAddPx(key, name[key]) + ';';
                 }

@@ -38,7 +38,7 @@ var $ = function(selector, context) {
     var ret = [];
 
     if (selector) {
-        if (S.isString(selector)) {
+        if (isString(selector)) {
             selector = selector.trim();
 
             if (selector[0] == '<' && /<([\w:]+)/.test(selector)) {
@@ -51,7 +51,7 @@ var $ = function(selector, context) {
         } else {
             if (selector.nodeType || selector.setTimeout) {
                 ret = [selector];
-            } else if (S.isArray(selector)) {
+            } else if (isArray(selector)) {
                 ret = selector;
             } else if (!selector.nodeType && !selector.setTimeout && selector.item) {
                 ret = slice.call(selector);

@@ -9,7 +9,7 @@ function filtered(els, selector) {
 
     return selector !== undefined ?
         $els.filter(
-            S.isArray(selector) ?
+            isArray(selector) ?
                 function(el) {
                     return some.call(selector, function(filter) {
                         return matches(el, filter);
@@ -32,7 +32,7 @@ function children(el) {
 
 function nth(el, filter, property, includeSelf) {
     var ret     = [],
-        isArray = S.isArray(filter);
+        isArray = isArray(filter);
 
     el = includeSelf ? el : el[property];
 

@@ -41,6 +41,21 @@ function likeArray(nodes) {
     return typeof nodes.length == 'number';
 }
 
+function isType(type) {
+    return function(obj) {
+        return {}.toString.call(obj) == '[object ' + type + ']';
+    }
+}
+
+var isNumber   = isType('Number'),
+    isString   = isType('String'),
+    isObject   = isType('Object'),
+    isArray    = Array.isArray || isType('Array'),
+    isFunction = isType('Function');
+
+var isPlainObject = function(obj) {
+    return isObject(obj) && !isWindow(obj) && Object.getPrototypeOf(obj) == Object.prototype;
+};
 /**
  * @ignore
  * @file node
@@ -81,7 +96,7 @@ var $ = function(selector, context) {
     var ret = [];
 
     if (selector) {
-        if (S.isString(selector)) {
+        if (isString(selector)) {
             selector = selector.trim();
 
             if (selector[0] == '<' && /<([\w:]+)/.test(selector)) {
@@ -94,7 +109,7 @@ var $ = function(selector, context) {
         } else {
             if (selector.nodeType || selector.setTimeout) {
                 ret = [selector];
-            } else if (S.isArray(selector)) {
+            } else if (isArray(selector)) {
                 ret = selector;
             } else if (!selector.nodeType && !selector.setTimeout && selector.item) {
                 ret = slice.call(selector);
@@ -201,7 +216,7 @@ mix(node, {
     },
 
     filter: function(selector) {
-        if (S.isFunction(selector)) {
+        if (isFunction(selector)) {
             return $(filter.call(this, function(el) {
                 return selector.call(el, el);
             }));
@@ -335,7 +350,7 @@ mix(node, {
         var key,
             ret;
 
-        if (S.isPlainObject(name)) {
+        if (isPlainObject(name)) {
             for (key in name) {
                 node.attr.call(this, key, name[key]);
             }
@@ -470,7 +485,7 @@ function camelCase(name) {
 }
 
 function maybeAddPx(name, val) {
-    return S.isNumber(val) && !cssNumber[camelCase(name)] ? val + 'px' : val;
+    return isNumber(val) && !cssNumber[camelCase(name)] ? val + 'px' : val;
 }
 
 function getComputedStyle(el, name) {
@@ -499,11 +514,11 @@ mix(node, {
             ret = '';
 
         if (val == undefined) {
-            if (S.isString(name)) {
+            if (isString(name)) {
                 var el = this[0];
 
                 return el ? el.style[camelCase(name)] || getComputedStyle(el, name) : '';
-            } else if (S.isObject(name)) {
+            } else if (isObject(name)) {
                 for (key in name) {
                     ret += key + ':' + maybeAddPx(key, name[key]) + ';';
                 }
@@ -565,7 +580,7 @@ function filtered(els, selector) {
 
     return selector !== undefined ?
         $els.filter(
-            S.isArray(selector) ?
+            isArray(selector) ?
                 function(el) {
                     return some.call(selector, function(filter) {
                         return matches(el, filter);
@@ -588,7 +603,7 @@ function children(el) {
 
 function nth(el, filter, property, includeSelf) {
     var ret     = [],
-        isArray = S.isArray(filter);
+        isArray = isArray(filter);
 
     el = includeSelf ? el : el[property];
 
@@ -781,7 +796,7 @@ each(['after', 'prepend', 'before', 'append'], function(method, index) {
     var inside = index % 2;
 
     node[method] = function(html, loadScripts) {
-        var nodes  = S.isString(html) ? node.create(html) : html,
+        var nodes  = isString(html) ? node.create(html) : html,
             isCopy = this.length > 1,
             parent,
             target;
@@ -916,7 +931,7 @@ mix(node, {
             tag,
             container;
 
-        if (!html || !S.isString(html)) {
+        if (!html || !isString(html)) {
             return ret;
         }
 
@@ -934,7 +949,7 @@ mix(node, {
             });
         }
 
-        if (S.isPlainObject(props)) {
+        if (isPlainObject(props)) {
             for (key in props) {
                 ret.attr(key, props[key]);
             }

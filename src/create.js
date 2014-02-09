@@ -30,7 +30,7 @@ mix(node, {
             tag,
             container;
 
-        if (!html || !S.isString(html)) {
+        if (!html || !isString(html)) {
             return ret;
         }
 
@@ -48,7 +48,7 @@ mix(node, {
             });
         }
 
-        if (S.isPlainObject(props)) {
+        if (isPlainObject(props)) {
             for (key in props) {
                 ret.attr(key, props[key]);
             }

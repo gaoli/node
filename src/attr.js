@@ -39,7 +39,7 @@ mix(node, {
         var key,
             ret;
 
-        if (S.isPlainObject(name)) {
+        if (isPlainObject(name)) {
             for (key in name) {
                 node.attr.call(this, key, name[key]);
             }
