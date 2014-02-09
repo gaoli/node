@@ -24,7 +24,7 @@ var attrMethod = ['val', 'css', 'html', 'text', 'data', 'width', 'height', 'offs
     };
 
 function pluck(els, property) {
-    return S.map(els, function(el) {
+    return map(els, function(el) {
         return el[property];
     });
 }

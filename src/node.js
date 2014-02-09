@@ -23,7 +23,7 @@ mix(node, {
     },
 
     map: function(fn) {
-        return $(S.map(this, function(el, index) {
+        return $(map(this, function(el, index) {
             return fn.call(el, el, index);
         }));
     },

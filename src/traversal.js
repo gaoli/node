@@ -31,8 +31,8 @@ function children(el) {
 }
 
 function nth(el, filter, property, includeSelf) {
-    var ret     = [],
-        isArray = isArray(filter);
+    var ret   = [],
+        array = isArray(filter);
 
     el = includeSelf ? el : el[property];
 
@@ -43,13 +43,13 @@ function nth(el, filter, property, includeSelf) {
         el = el[property];
     }
 
-    if (isArray && !filter.length) {
+    if (array && !filter.length) {
         filter = undefined
     }
 
     ret = filtered(ret, filter);
 
-    return isArray ?
+    return array ?
         ret :
         ret.item(0);
 }

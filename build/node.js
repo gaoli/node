@@ -11,6 +11,7 @@ var emptyArray = [],
     every      = emptyArray.every,
     slice      = emptyArray.slice,
     filter     = emptyArray.filter,
+    concat     = emptyArray.concat,
     indexOf    = emptyArray.indexOf,
     forEach    = emptyArray.forEach;
 
@@ -20,9 +21,23 @@ function mix(target, source) {
     }
 }
 
-function each(elements, callback) {
-    elements && forEach.call(elements, callback);
-    return elements;
+function map(els, cb) {
+    var val,
+        ret = [];
+
+    els && forEach.call(els, function(el, index) {
+        val = cb(el, index);
+        if (val !== null) {
+            ret.push(val);
+        }
+    });
+
+    return ret.length ? concat.apply([], ret) : ret;
+}
+
+function each(els, callback) {
+    els && forEach.call(els, callback);
+    return els;
 }
 
 function isWindow(node) {
@@ -81,7 +96,7 @@ mix(node, {
     },
 
     map: function(fn) {
-        return $(S.map(this, function(el, index) {
+        return $(map(this, function(el, index) {
             return fn.call(el, el, index);
         }));
     },
@@ -335,7 +350,7 @@ var attrMethod = ['val', 'css', 'html', 'text', 'data', 'width', 'height', 'offs
     };
 
 function pluck(els, property) {
-    return S.map(els, function(el) {
+    return map(els, function(el) {
         return el[property];
     });
 }
@@ -602,8 +617,8 @@ function children(el) {
 }
 
 function nth(el, filter, property, includeSelf) {
-    var ret     = [],
-        isArray = isArray(filter);
+    var ret   = [],
+        array = isArray(filter);
 
     el = includeSelf ? el : el[property];
 
@@ -614,13 +629,13 @@ function nth(el, filter, property, includeSelf) {
         el = el[property];
     }
 
-    if (isArray && !filter.length) {
+    if (array && !filter.length) {
         filter = undefined
     }
 
     ret = filtered(ret, filter);
 
-    return isArray ?
+    return array ?
         ret :
         ret.item(0);
 }
