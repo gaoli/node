@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DOM 模块测试</title>
+  <link rel="stylesheet" href="lib/mocha.css">
+</head>
+<body>
+  <div id="mocha"></div>
+  <script type="text/javascript">
+    KISSY = {};
+  </script>
+  <script src="../build/node.js"></script>
+  <script src="lib/mocha.js"></script>
+  <script src="lib/should.js"></script>
+  <script type="text/javascript">
+    mocha.setup('bdd');
+  </script>
+  <script src="node/selector.js"></script>
+  <script src="node/class.js"></script>
+  <script src="node/attr.js"></script>
+  <script src="node/traversal.js"></script>
+  <script src="node/insertion.js"></script>
+  <script src="node/offset.js"></script>
+  <script type="text/javascript">
+    if (window.mochaPhantomJS) {
+      mochaPhantomJS.run();
+    } else {
+      mocha.run();
+    }
+  </script>
+</body>
+</html>
