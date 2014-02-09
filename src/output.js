@@ -12,6 +12,6 @@ mix(S, {
     all     : $.all
 });
 
-KISSY.add('node', function (S) {
+S.add && S.add('node', function (S) {
     return $;
 });
