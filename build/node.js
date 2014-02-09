@@ -56,6 +56,12 @@ function likeArray(nodes) {
     return typeof nodes.length == 'number';
 }
 
+function unique(array) {
+    return filter.call(array, function(item, index) {
+        return array.indexOf(item) == index;
+    });
+}
+
 function isType(type) {
     return function(obj) {
         return {}.toString.call(obj) == '[object ' + type + ']';
@@ -219,7 +225,7 @@ mix(node, {
     all: function(selector) {
         return this.length === 1 ?
             $(query(selector, this[0])) :
-            S.unique(
+            unique(
                 this.map(function(el) {
                     return query(selector, el);
                 })

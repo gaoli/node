@@ -64,7 +64,7 @@ mix(node, {
     all: function(selector) {
         return this.length === 1 ?
             $(query(selector, this[0])) :
-            S.unique(
+            unique(
                 this.map(function(el) {
                     return query(selector, el);
                 })

@@ -54,6 +54,12 @@ function likeArray(nodes) {
     return typeof nodes.length == 'number';
 }
 
+function unique(array) {
+    return filter.call(array, function(item, index) {
+        return array.indexOf(item) == index;
+    });
+}
+
 function isType(type) {
     return function(obj) {
         return {}.toString.call(obj) == '[object ' + type + ']';
