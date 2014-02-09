@@ -54,33 +54,33 @@
 
         it('wrapAll', function() {
             $span.wrapAll('<div id="J_TestDiv"></div>');
-            $('#J_TestDiv').children().length.should.be.equal(8);
-            $('#J_TestDiv').children().item(0)[0].id.should.be.equal('J_TestSpan_1');
+            $('#J_TestDiv').children().length.should.equal(8);
+            $('#J_TestDiv').children().item(0)[0].id.should.equal('J_TestSpan_1');
         });
 
         it('wrap', function() {
             $a.wrap('<em class="J_TestEm"></em>');
-            $('.J_TestEm').length.should.be.equal(8);
-            $('.J_TestEm').item(0).parent()[0].id.should.be.equal('J_TestSpan_1')
+            $('.J_TestEm').length.should.equal(8);
+            $('.J_TestEm').item(0).parent()[0].id.should.equal('J_TestSpan_1')
         });
 
         it('unwrap', function() {
             $a.unwrap();
-            $a.parent()[0].id.should.be.equal('J_TestP_1');
-            $('.J_TestSpan').length.should.be.equal(0);
+            $a.parent()[0].id.should.equal('J_TestP_1');
+            $('.J_TestSpan').length.should.equal(0);
         });
 
         it('wrapInner', function() {
             $p.wrapInner('<p class="J_TestPWrap"></p>');
-            $('.J_TestPWrap').parent()[0].id.should.be.equal('J_TestP_1');
-            $('.J_TestPWrap').children()[0].id.should.be.equal('J_TestSpan_1');
-            $('.J_TestPWrap').item(2).children().length.should.be.equal(0);
+            $('.J_TestPWrap').parent()[0].id.should.equal('J_TestP_1');
+            $('.J_TestPWrap').children()[0].id.should.equal('J_TestSpan_1');
+            $('.J_TestPWrap').item(2).children().length.should.equal(0);
         });
 
         it('replaceWith', function() {
             $a.replaceWith('<em class="J_TestEm"></em>');
-            $('.J_TestEm').length.should.be.equal(8);
-            $('.J_TestA').length.should.be.equal(0);
+            $('.J_TestEm').length.should.equal(8);
+            $('.J_TestA').length.should.equal(0);
         });
     });
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>DOM 模块测试</title>
   <link rel="stylesheet" href="lib/mocha.css">
 </head>
@@ -12,9 +12,11 @@
   </script>
   <script src="../build/node.js"></script>
   <script src="lib/mocha.js"></script>
-  <script src="lib/should.js"></script>
+  <script src="lib/chai.js"></script>
   <script type="text/javascript">
-    mocha.setup('bdd');
+    mocha.ui('bdd');
+    mocha.reporter('html');
+    chai.should();
   </script>
   <script src="node/selector.js"></script>
   <script src="node/class.js"></script>

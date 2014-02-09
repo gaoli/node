@@ -33,7 +33,7 @@
             $a.hasClass('link').should.be.false;
             $a.removeClass('link2 link4');
             $a.removeClass('link3');
-            $a[0].className.should.be.equal('link5');
+            $a[0].className.should.equal('link5');
         });
 
         it('toggleClass', function() {

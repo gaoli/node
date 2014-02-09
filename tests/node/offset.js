@@ -31,15 +31,13 @@
         });
 
         it('scrollTop', function() {
-            $win.scrollTop(100);
-            $win.scrollTop().should.be.equal(100);
             $div.scrollTop(100);
-            $div.scrollTop().should.be.equal(100);
+            $div.scrollTop().should.equal(100);
         });
 
         it('scrollLeft', function() {
             $div.scrollLeft(100);
-            $div.scrollLeft().should.be.equal(100);
+            $div.scrollLeft().should.equal(100);
         });
 
     });
