@@ -23,7 +23,7 @@ function filtered(els, selector) {
 function children(el) {
     return 'children' in el ?
         slice.call(el.children) :
-        $.map(el.childNodes, function(el) {
+        map(el.childNodes, function(el) {
             if (isElement(el)) {
                 return el;
             }
