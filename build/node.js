@@ -96,6 +96,7 @@ mix(node, {
 
     each: function(cb) {
         every.call(this, function(el, index) {
+            el = $(el);
             return cb.call(el, el, index) !== false;
         });
         return this;
