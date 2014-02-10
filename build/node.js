@@ -220,7 +220,7 @@ mix(node, {
         return this.length === 1 ?
             $(query(selector, this[0])) :
             unique(
-                this.map(function(el) {
+                map(this, function(el) {
                     return query(selector, el);
                 })
             );
