@@ -948,7 +948,7 @@ mix(node, {
 
     create: function(html, props) {
         var key,
-            ret = null,
+            ret = [],
             tag,
             container;
 
