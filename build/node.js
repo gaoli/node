@@ -101,12 +101,6 @@ mix(node, {
         return this;
     },
 
-    map: function(fn) {
-        return $(map(this, function(el, index) {
-            return fn.call(el, el, index);
-        }));
-    },
-
     slice: function() {
         return $(slice.apply(this, arguments));
     }
