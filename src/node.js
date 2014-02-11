@@ -25,6 +25,10 @@ mix(node, {
 
     slice: function() {
         return $(slice.apply(this, arguments));
+    },
+
+    end: function() {
+        return this.__parent || this;
     }
 
 });

@@ -104,6 +104,10 @@ mix(node, {
 
     slice: function() {
         return $(slice.apply(this, arguments));
+    },
+
+    end: function() {
+        return this.__parent || this;
     }
 
 });
@@ -243,6 +247,10 @@ mix(node, {
 
         ret = self.all(selector);
         ret = ret.length ? ret.slice(0, 1) : null;
+
+        if (ret) {
+            ret.__parent = self;
+        }
 
         return ret;
     },
