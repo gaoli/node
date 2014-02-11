@@ -6,6 +6,16 @@
 
 var tempParent = document.createElement('div');
 
+function find(selector, context) {
+    return context.length === 1 ?
+        query(selector, context[0]) :
+        unique(
+            map(context, function(el) {
+                return query(selector, el);
+            })
+        );
+}
+
 function query(selector, context) {
     var s        = selector.charAt(0), ret,
         maybeID  = s === '#',
@@ -62,17 +72,27 @@ mix(S, {
 mix(node, {
 
     all: function(selector) {
-        return this.length === 1 ?
-            $(query(selector, this[0])) :
-            unique(
-                map(this, function(el) {
-                    return query(selector, el);
-                })
-            );
+        var self = this,
+            ret;
+
+        ret = $(find(selector, self));
+        ret.__parent = self;
+
+        return ret;
     },
 
     one: function(selector) {
-        return $(query(selector, this[0])[0]);
+        var self = this,
+            ret;
+
+        ret = $(query(selector, self[0]));
+        ret = ret.length ? ret.slice(0, 1) : null;
+
+        if (ret) {
+            ret.__parent = self;
+        }
+
+        return ret;
     },
 
     filter: function(selector) {

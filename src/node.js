@@ -39,7 +39,7 @@ var $ = function(selector, context) {
             if (selector[0] == '<' && /<([\w:]+)/.test(selector)) {
                 ret = node.create(selector);
             } else if (context !== undefined) {
-                ret = $(context).all(selector);
+                ret = find(selector, $(context));
             } else {
                 ret = query(selector, doc);
             }
