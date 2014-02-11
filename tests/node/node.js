@@ -51,6 +51,14 @@
             $('#J_Test').remove();
         });
 
+        describe('#one()', function() {
+
+            it('should return correctly for no-exist', function() {
+                expect($().one()).to.equal(null);
+            });
+
+        });
+
         describe('#end()', function() {
 
             it('should return correctly for all method', function() {

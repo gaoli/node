@@ -61,14 +61,30 @@
             $('#J_Test').remove();
         });
 
+        describe('#item()', function() {
+
+            it('should return correctly for exist', function() {
+                $p.item(0)[0].id.should.equal('J_TestP_1');
+            });
+
+            it('should return correctly for no-exist', function() {
+                expect($p.item(100)).to.equal(null);
+            });
+
+        });
+
         it('first', function() {
             $p.first()[0].id.should.equal('J_TestSpan_1');
             $p.first('#J_TestSpan_4')[0].id.should.equal('J_TestSpan_4');
+
+            expect($p.first('no-exist')).to.equal(null);
         });
 
         it('last', function() {
             $p.last()[0].id.should.equal('J_TestSpan_4');
             $p.last('#J_TestSpan_1')[0].id.should.equal('J_TestSpan_1');
+
+            expect($p.last('no-exist')).to.equal(null);
         });
 
         it('parent', function() {
@@ -92,7 +108,7 @@
             $('body').parent().length.should.equal(1);
             $('body').parent()[0].should.equal(document.documentElement);
 
-            $a.parent('no-exist').length.should.equal(0);
+            expect($a.parent('no-exist')).to.equal(null);
         });
 
         it('next', function() {
@@ -101,6 +117,8 @@
 
             $span1.next('#J_TestSpan_4').length.should.equal(1);
             $span1.next('#J_TestSpan_4')[0].id.should.equal('J_TestSpan_4');
+
+            expect($span1.next('no-exist')).to.equal(null);
         });
 
         it('prev', function() {
@@ -109,6 +127,8 @@
 
             $span8.prev('#J_TestSpan_5').length.should.equal(1);
             $span8.prev('#J_TestSpan_5')[0].id.should.equal('J_TestSpan_5');
+
+            expect($span8.prev('no-exist')).to.equal(null);
         });
 
         it('children', function() {

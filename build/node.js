@@ -668,7 +668,13 @@ function nth(el, filter, property, includeSelf) {
 mix(node, {
 
     item: function(index) {
-        return this.slice(index, index + 1);
+        var self = this;
+
+        return isNumber(index) ?
+            index >= self.length ?
+                null :
+                $(self[index]) :
+            $(index);
     },
 
     first: function(filter) {
