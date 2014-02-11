@@ -17,10 +17,16 @@
             '</div>'
         ].join('');
 
-        var doc = document;
+        var doc = document,
+            $a,
+            $p,
+            $span;
 
         beforeEach(function() {
             $('body').append(tpl);
+            $a    = $('.J_TestA');
+            $p    = $('.J_TestP');
+            $span = $('.J_TestSpan');
         });
 
         afterEach(function() {
@@ -92,6 +98,14 @@
         });
 
         describe('#one()', function() {
+
+            it('should return correctly for empty', function() {
+                expect($p.one()).to.equal(null);
+            });
+
+            it('should return correctly for no-exist', function() {
+                expect($p.one('no-exist')).to.equal(null);
+            });
 
             it('should return correctly for fragment', function() {
                 var $node = $('<div><p id="J_TestP"><span id="J_TestSpan"></span></p><p><span></span></p><div>');

@@ -85,12 +85,8 @@ mix(node, {
         var self = this,
             ret;
 
-        ret = $(query(selector, self[0]));
+        ret = self.all(selector);
         ret = ret.length ? ret.slice(0, 1) : null;
-
-        if (ret) {
-            ret.__parent = self;
-        }
 
         return ret;
     },
