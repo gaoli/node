@@ -120,7 +120,7 @@ var $ = function(selector, context) {
             } else if (context !== undefined) {
                 ret = $(context).all(selector);
             } else {
-                ret = S.query(selector, doc);
+                ret = query(selector, doc);
             }
         } else {
             if (selector.nodeType || selector.setTimeout) {
