@@ -143,12 +143,12 @@ each(['after', 'prepend', 'before', 'append'], function(method, index) {
 
             each(scripts, function(el) {
                 if (el.src) {
-                    S.getScript(el.src);
+                    getScript(el.src);
                 } else {
                     win['eval'].call(win, el.innerHTML);
                 }
             });
-        })
+        });
     };
 
     node[inside ? method + 'To' : 'insert' + (index ? 'Before' : 'After')] = function(html) {

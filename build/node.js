@@ -6,6 +6,11 @@
  * @author 莫争 <gaoli.gl@taobao.com>
  */
 
+var win   = window,
+    doc   = document,
+    body  = doc.body,
+    docEl = doc.documentElement;
+
 var emptyArray = [],
     some       = emptyArray.some,
     every      = emptyArray.every,
@@ -62,6 +67,14 @@ function unique(array) {
     });
 }
 
+function getScript(url) {
+    var script = doc.createElement('script'),
+        head   = doc.getElementsByTagName('head')[0] || docEl;
+
+    script.src = url;
+    head.insertBefore(script, head.firstChild);
+}
+
 function isType(type) {
     return function(obj) {
         return {}.toString.call(obj) == '[object ' + type + ']';
@@ -82,11 +95,6 @@ var isPlainObject = function(obj) {
  * @file node
  * @author 莫争 <gaoli.gl@taobao.com>
  */
-
-var win   = window,
-    doc   = document,
-    body  = doc.body,
-    docEl = doc.documentElement;
 
 var node = {};
 
@@ -157,7 +165,6 @@ $.node = function(els) {
 $.isNode = function(obj) {
     return obj instanceof $.node;
 };
-
 /**
  * @ignore
  * @file node-selector
@@ -878,12 +885,12 @@ each(['after', 'prepend', 'before', 'append'], function(method, index) {
 
             each(scripts, function(el) {
                 if (el.src) {
-                    S.getScript(el.src);
+                    getScript(el.src);
                 } else {
                     win['eval'].call(win, el.innerHTML);
                 }
             });
-        })
+        });
     };
 
     node[inside ? method + 'To' : 'insert' + (index ? 'Before' : 'After')] = function(html) {

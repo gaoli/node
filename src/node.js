@@ -4,11 +4,6 @@
  * @author 莫争 <gaoli.gl@taobao.com>
  */
 
-var win   = window,
-    doc   = document,
-    body  = doc.body,
-    docEl = doc.documentElement;
-
 var node = {};
 
 mix(node, {

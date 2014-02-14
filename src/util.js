@@ -4,6 +4,11 @@
  * @author 莫争 <gaoli.gl@taobao.com>
  */
 
+var win   = window,
+    doc   = document,
+    body  = doc.body,
+    docEl = doc.documentElement;
+
 var emptyArray = [],
     some       = emptyArray.some,
     every      = emptyArray.every,
@@ -58,6 +63,14 @@ function unique(array) {
     return filter.call(array, function(item, index) {
         return array.indexOf(item) == index;
     });
+}
+
+function getScript(url) {
+    var script = doc.createElement('script'),
+        head   = doc.getElementsByTagName('head')[0] || docEl;
+
+    script.src = url;
+    head.insertBefore(script, head.firstChild);
 }
 
 function isType(type) {
