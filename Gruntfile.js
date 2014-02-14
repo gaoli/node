@@ -37,10 +37,19 @@ module.exports = function(grunt) {
             }
         },
 
+        docco: {
+            node: {
+                src: ['build/node.js'],
+                options: {
+                    output: 'docs/'
+                }
+            }
+        },
+
         watch: {
             node: {
                 files: ['<%= opt.src %>/*.js'],
-                tasks: ['concat', 'uglify']
+                tasks: ['concat', 'uglify', 'docco']
             }
         }
 
@@ -48,8 +57,9 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-docco');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['concat', 'uglify', 'watch']);
+    grunt.registerTask('default', ['concat', 'uglify', 'docco', 'watch']);
 
 };
