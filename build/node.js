@@ -877,6 +877,11 @@ function nodeListToFragment(nodes) {
 
 mix(node, {
 
+    // ** .wrapAll() **
+    //
+    // * .wrapAll(wrapperNode)
+    //
+    //  在所有匹配元素外面包一层 HTML 结构
     wrapAll: function(wrapperNode) {
         var el = this[0];
 
@@ -896,6 +901,11 @@ mix(node, {
         return this;
     },
 
+    // ** .wrap() **
+    //
+    // * .wrap(wrapperNode)
+    //
+    //  在每个匹配的元素外层包上一个 HTML 元素
     wrap: function(wrapperNode) {
         var $wrapperNode = $(wrapperNode),
             wrapperClone = $wrapperNode[0].parentNode || this.length;
@@ -907,6 +917,11 @@ mix(node, {
         });
     },
 
+    // ** .unwrap() **
+    //
+    // * .unwrap()
+    //
+    //  移除集合中每个元素的直接父节点，并把他们的子元素保留在原来的位置
     unwrap: function() {
         return each(this, function(el) {
             var $el     = $(el),
@@ -916,6 +931,11 @@ mix(node, {
         });
     },
 
+    // ** .wrapInner() **
+    //
+    // * .wrapInner(wrapperNode)
+    //
+    //  将每个元素中的内容包裹在一个单独的结构中
     wrapInner: function(wrapperNode) {
         return each(this, function(el) {
             var $el       = $(el),
@@ -929,11 +949,48 @@ mix(node, {
         });
     },
 
+    // ** .replaceWith() **
+    //
+    // * .replaceWith(newNodes)
+    //
+    //  用给定的内容替换所有匹配的元素
     replaceWith: function(newNodes) {
         return this.before(newNodes).remove();
     }
 
 });
+
+// ** .after() **
+//
+// * .after(html)
+//
+//  在匹配元素集合中的每个元素后面插入内容，作为其兄弟节点
+//
+//  内容可以为 HTML字符串，DOM 元素，DOM元素数组
+//
+// ** .prepend() **
+//
+// * .prepend(html)
+//
+//  将内容插入到每个匹配元素的前面（元素内部）
+//
+//  内容可以为 HTML字符串，DOM 元素，DOM元素数组
+//
+// ** .before() **
+//
+// * .before(html)
+//
+//  在匹配元素的前面（元素外部）插入内容
+//
+//  内容可以为 HTML字符串，DOM 元素，DOM元素数组
+//
+// ** .append() **
+//
+// * .append(html)
+//
+//  在每个匹配元素里面的末尾处插入内容
+//
+//  内容可以为 HTML字符串，DOM 元素，DOM元素数组
 
 each(['after', 'prepend', 'before', 'append'], function(method, index) {
     var inside = index % 2;
@@ -983,8 +1040,31 @@ each(['after', 'prepend', 'before', 'append'], function(method, index) {
         });
     };
 
-    node[inside ? method + 'To' : 'insert' + (index ? 'Before' : 'After')] = function(html) {
-        $(html)[method](this);
+    // ** .insertAfter() **
+    //
+    // * .insertAfter(target)
+    //
+    //  将集合中的元素插入到指定的目标元素后面（外部插入）
+    //
+    // ** .prependTo() **
+    //
+    // * .prependTo(target)
+    //
+    //  将所有元素插入到目标前面（内部插入）
+    //
+    // ** .insertBefore() **
+    //
+    // * .insertBefore(target)
+    //
+    //  将集合中的元素插入到指定的目标元素前面（外部插入）
+    //
+    // ** .appendTo() **
+    //
+    // * .appendTo(target)
+    //
+    //  将匹配的元素插入到目标元素的末尾（内部插入）
+    node[inside ? method + 'To' : 'insert' + (index ? 'Before' : 'After')] = function(target) {
+        $(target)[method](this);
         return this;
     };
 });

@@ -1034,9 +1034,27 @@ mix(node, {
     <span class="hljs-keyword">return</span> ret;
 }
 
-mix(node, {
+mix(node, {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p><strong> .wrapAll() </strong></p>
+<ul>
+<li><p>.wrapAll(wrapperNode)</p>
+<p>在所有匹配元素外面包一层 HTML 结构</p>
+</li>
+</ul>
 
-    wrapAll: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(wrapperNode)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    wrapAll: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(wrapperNode)</span> {</span>
         <span class="hljs-keyword">var</span> el = <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>];
 
         <span class="hljs-keyword">if</span> (el) {
@@ -1053,9 +1071,27 @@ mix(node, {
         }
 
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p><strong> .wrap() </strong></p>
+<ul>
+<li><p>.wrap(wrapperNode)</p>
+<p>在每个匹配的元素外层包上一个 HTML 元素</p>
+</li>
+</ul>
 
-    wrap: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(wrapperNode)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    wrap: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(wrapperNode)</span> {</span>
         <span class="hljs-keyword">var</span> $wrapperNode = $(wrapperNode),
             wrapperClone = $wrapperNode[<span class="hljs-number">0</span>].parentNode || <span class="hljs-keyword">this</span>.length;
 
@@ -1064,18 +1100,54 @@ mix(node, {
                 wrapperClone ? $wrapperNode[<span class="hljs-number">0</span>].cloneNode(<span class="hljs-literal">true</span>) : $wrapperNode[<span class="hljs-number">0</span>]
             )
         });
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p><strong> .unwrap() </strong></p>
+<ul>
+<li><p>.unwrap()</p>
+<p>移除集合中每个元素的直接父节点，并把他们的子元素保留在原来的位置</p>
+</li>
+</ul>
 
-    unwrap: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    unwrap: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
         <span class="hljs-keyword">return</span> each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             <span class="hljs-keyword">var</span> $el     = $(el),
                 $parent = $el.parent();
 
             $parent.replaceWith($parent.children());
         });
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p><strong> .wrapInner() </strong></p>
+<ul>
+<li><p>.wrapInner(wrapperNode)</p>
+<p>将每个元素中的内容包裹在一个单独的结构中</p>
+</li>
+</ul>
 
-    wrapInner: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(wrapperNode)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    wrapInner: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(wrapperNode)</span> {</span>
         <span class="hljs-keyword">return</span> each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             <span class="hljs-keyword">var</span> $el       = $(el),
                 $children = $el.children();
@@ -1086,14 +1158,73 @@ mix(node, {
                 $el.append(wrapperNode);
             }
         });
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p><strong> .replaceWith() </strong></p>
+<ul>
+<li><p>.replaceWith(newNodes)</p>
+<p>用给定的内容替换所有匹配的元素</p>
+</li>
+</ul>
 
-    replaceWith: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(newNodes)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    replaceWith: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(newNodes)</span> {</span>
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.before(newNodes).remove();
     }
 
-});
+});</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p><strong> .after() </strong></p>
+<ul>
+<li><p>.after(html)</p>
+<p>在匹配元素集合中的每个元素后面插入内容，作为其兄弟节点</p>
+<p>内容可以为 HTML字符串，DOM 元素，DOM元素数组</p>
+</li>
+</ul>
+<p><strong> .prepend() </strong></p>
+<ul>
+<li><p>.prepend(html)</p>
+<p>将内容插入到每个匹配元素的前面（元素内部）</p>
+<p>内容可以为 HTML字符串，DOM 元素，DOM元素数组</p>
+</li>
+</ul>
+<p><strong> .before() </strong></p>
+<ul>
+<li><p>.before(html)</p>
+<p>在匹配元素的前面（元素外部）插入内容</p>
+<p>内容可以为 HTML字符串，DOM 元素，DOM元素数组</p>
+</li>
+</ul>
+<p><strong> .append() </strong></p>
+<ul>
+<li><p>.append(html)</p>
+<p>在每个匹配元素里面的末尾处插入内容</p>
+<p>内容可以为 HTML字符串，DOM 元素，DOM元素数组</p>
+</li>
+</ul>
 
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
 each([<span class="hljs-string">'after'</span>, <span class="hljs-string">'prepend'</span>, <span class="hljs-string">'before'</span>, <span class="hljs-string">'append'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(method, index)</span> {</span>
     <span class="hljs-keyword">var</span> inside = index % <span class="hljs-number">2</span>;
 
@@ -1140,10 +1271,46 @@ each([<span class="hljs-string">'after'</span>, <span class="hljs-string">'prepe
                 }
             });
         });
-    };
+    };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p><strong> .insertAfter() </strong></p>
+<ul>
+<li><p>.insertAfter(target)</p>
+<p>将集合中的元素插入到指定的目标元素后面（外部插入）</p>
+</li>
+</ul>
+<p><strong> .prependTo() </strong></p>
+<ul>
+<li><p>.prependTo(target)</p>
+<p>将所有元素插入到目标前面（内部插入）</p>
+</li>
+</ul>
+<p><strong> .insertBefore() </strong></p>
+<ul>
+<li><p>.insertBefore(target)</p>
+<p>将集合中的元素插入到指定的目标元素前面（外部插入）</p>
+</li>
+</ul>
+<p><strong> .appendTo() </strong></p>
+<ul>
+<li><p>.appendTo(target)</p>
+<p>将匹配的元素插入到目标元素的末尾（内部插入）</p>
+</li>
+</ul>
 
-    node[inside ? method + <span class="hljs-string">'To'</span> : <span class="hljs-string">'insert'</span> + (index ? <span class="hljs-string">'Before'</span> : <span class="hljs-string">'After'</span>)] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(html)</span> {</span>
-        $(html)[method](<span class="hljs-keyword">this</span>);
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    node[inside ? method + <span class="hljs-string">'To'</span> : <span class="hljs-string">'insert'</span> + (index ? <span class="hljs-string">'Before'</span> : <span class="hljs-string">'After'</span>)] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(target)</span> {</span>
+        $(target)[method](<span class="hljs-keyword">this</span>);
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
     };
 });
@@ -1230,11 +1397,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-13">
+        <li id="section-20">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
+                <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
               <p><strong> .create() </strong></p>
 <ul>
@@ -1281,11 +1448,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-14">
+        <li id="section-21">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
+                <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
               <p><strong> .html() </strong></p>
 <ul>
@@ -1311,11 +1478,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-15">
+        <li id="section-22">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+                <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
               <p><strong> .remove() </strong></p>
 <ul>
@@ -1335,11 +1502,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-16">
+        <li id="section-23">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
+                <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
               <p><strong> .empty() </strong></p>
 <ul>
@@ -1359,11 +1526,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-17">
+        <li id="section-24">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
+                <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
               <p><strong> .clone() </strong></p>
 <ul>
