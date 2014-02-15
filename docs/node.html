@@ -333,9 +333,28 @@ mix(node, {
     <span class="hljs-keyword">return</span> names.split(<span class="hljs-regexp">/[\.\s]\s*\.?/</span>);
 }
 
-mix(node, {
+mix(node, {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p><strong> .addClass() </strong></p>
+<ul>
+<li><p>.addClass(names)</p>
+<p>给符合选择器的所有元素添加指定 class</p>
+<p>多个 class 类名通过空格分隔</p>
+</li>
+</ul>
 
-    addClass: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(names)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    addClass: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(names)</span> {</span>
         <span class="hljs-keyword">if</span> (!names) <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
         <span class="hljs-keyword">return</span> each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             <span class="hljs-keyword">var</span> $el       = $(el),
@@ -348,9 +367,31 @@ mix(node, {
 
             classList.length &amp;&amp; className(el, cls + (cls ? <span class="hljs-string">' '</span> : <span class="hljs-string">''</span>) + classList.join(<span class="hljs-string">' '</span>))
         });
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p><strong> .removeClass() </strong></p>
+<ul>
+<li><p>.removeClass()</p>
+<p>给符合选择器的所有元素移除所有 class</p>
+</li>
+<li><p>.removeClass(names)</p>
+<p>给符合选择器的所有元素移除指定 class</p>
+<p>多个 class 类名通过空格分隔</p>
+</li>
+</ul>
 
-    removeClass: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(names)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    removeClass: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(names)</span> {</span>
         <span class="hljs-keyword">return</span> each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             <span class="hljs-keyword">if</span> (names === <span class="hljs-literal">undefined</span>) {
                 <span class="hljs-keyword">return</span> className(el, <span class="hljs-string">''</span>);
@@ -364,9 +405,27 @@ mix(node, {
                 className(el, classList.trim());
             }
         });
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p><strong> .toggleClass() </strong></p>
+<ul>
+<li><p>.toggleClass(names)</p>
+<p>操作符合选择器的所有元素, 如果存在值为 names 的 class, 则移除掉, 反之添加</p>
+</li>
+</ul>
 
-    toggleClass: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(names)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    toggleClass: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(names)</span> {</span>
         <span class="hljs-keyword">if</span> (!names) <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
         <span class="hljs-keyword">return</span> each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             <span class="hljs-keyword">var</span> $el = $(el);
@@ -375,9 +434,27 @@ mix(node, {
                 $el.hasClass(name) ? $el.removeClass(name) : $el.addClass(name)
             });
         });
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p><strong> .hasClass() </strong></p>
+<ul>
+<li><p>.hasClass(names)</p>
+<p>判断符合选择器的所有元素中是否有某个元素含有特定 class</p>
+</li>
+</ul>
 
-    hasClass: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(names)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    hasClass: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(names)</span> {</span>
         <span class="hljs-keyword">if</span> (!names) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
         <span class="hljs-keyword">return</span> some.call(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             <span class="hljs-keyword">return</span> every.call(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span> {</span>
@@ -428,11 +505,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-2">
+        <li id="section-6">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
+                <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
               <p><strong> .attr() </strong></p>
 <ul>
@@ -494,11 +571,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-3">
+        <li id="section-7">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
+                <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
               <p><strong> .removeAttr() </strong></p>
 <ul>
@@ -518,11 +595,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-4">
+        <li id="section-8">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p><strong> .hasAttr() </strong></p>
 <ul>
@@ -543,11 +620,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-5">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p><strong> .prop() </strong></p>
 <ul>
@@ -576,11 +653,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-6">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <p><strong> .hasProp() </strong></p>
 <ul>
@@ -602,11 +679,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-7">
+        <li id="section-11">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <p><strong> .val() </strong></p>
 <ul>
@@ -652,11 +729,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-8">
+        <li id="section-12">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+                <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
               <p><strong> .text() </strong></p>
 <ul>
