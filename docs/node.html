@@ -423,9 +423,38 @@ mix(node, {
     val == <span class="hljs-literal">null</span> ? el.removeAttribute(name) : el.setAttribute(name, val)
 }
 
-mix(node, {
+mix(node, {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p><strong> .attr() </strong></p>
+<ul>
+<li><p>.attr(name)</p>
+<p>获取符合选择器的第一个元素的属性值</p>
+</li>
+<li><p>.attr(name, val)</p>
+<p>给符合选择器的所有元素设置属性值</p>
+</li>
+<li><p>.attr(kv)</p>
+<p>给符合选择器的所有元素设置属性值</p>
+</li>
+</ul>
+<p><code>.attr()</code> 和 <code>.prop()</code> 的区别</p>
+<pre><code>el.attr(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">// =&gt; "checked"</span>
+el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">// =&gt; true</span>
+</code></pre><p><code>.attr()</code> 和 <code>.prop()</code> 的使用</p>
+<p>从中文意思看，两者分别是获取 / 设置 attributes 和 properties 的方法，分别在这两个场景中使用：具有 true 和 false 两个属性的属性，如 checked，selected 或者 disabled 使用 <code>.prop()</code>，其他的使用 <code>.attr()</code></p>
 
-    attr: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name, val)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    attr: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name, val)</span> {</span>
         <span class="hljs-keyword">var</span> key,
             ret;
 
@@ -460,31 +489,109 @@ mix(node, {
         }
 
         <span class="hljs-keyword">return</span> ret === <span class="hljs-literal">null</span> ? <span class="hljs-literal">undefined</span> : ret;
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p><strong> .removeAttr() </strong></p>
+<ul>
+<li><p>.removeAttr(name)</p>
+<p>移除符合选择器的所有元素的指定属性</p>
+</li>
+</ul>
 
-    removeAttr: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    removeAttr: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span> {</span>
         <span class="hljs-keyword">return</span> each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             isElement(el) &amp;&amp; setAttribute(el, name)
         });
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p><strong> .hasAttr() </strong></p>
+<ul>
+<li><p>.hasAttr(name)</p>
+<p>判断符合选择器的所有元素中是否有某个元素含有特定属性</p>
+</li>
+</ul>
 
-    hasAttr: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    hasAttr: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span> {</span>
         <span class="hljs-keyword">if</span> (!name) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
         <span class="hljs-keyword">return</span> some.call(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             <span class="hljs-keyword">return</span> isElement(el) &amp;&amp; el.getAttribute(name);
         });
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p><strong> .prop() </strong></p>
+<ul>
+<li><p>.prop(name)</p>
+<p>获取符合选择器的第一个元素的对应 property 值</p>
+</li>
+<li><p>.prop(name, val)</p>
+<p>给符合选择器的所有元素设置 property 值</p>
+</li>
+<li><p>.prop(kv)</p>
+<p>给符合选择器的所有元素设置 property 值</p>
+</li>
+</ul>
 
-    prop: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name, val)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    prop: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name, val)</span> {</span>
         name = propFixMap[name] || name;
         <span class="hljs-keyword">return</span> val == <span class="hljs-literal">undefined</span> ?
             <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>] &amp;&amp; <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>][name] :
             each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
                 el[name] = val;
             });
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p><strong> .hasProp() </strong></p>
+<ul>
+<li><p>.hasProp(name)</p>
+<p>判断符合选择器的第一个元素是否含有特定 property 属性</p>
+</li>
+</ul>
 
-    hasProp: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    hasProp: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span> {</span>
         <span class="hljs-keyword">if</span> (!name) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
         name = propFixMap[name] || name;
         <span class="hljs-keyword">return</span> some.call(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
@@ -500,9 +607,31 @@ mix(node, {
             } <span class="hljs-keyword">catch</span> (e) {
             }
         });
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p><strong> .val() </strong></p>
+<ul>
+<li><p>.val()</p>
+<p>获取符合选择器的第一个元素所的 value 值</p>
+</li>
+<li><p>.val(val)</p>
+<p>给符合选择器的所有元素设置 value 值</p>
+</li>
+</ul>
+<p>如果是 <code>&lt;select multiple&gt;</code> 标签，则返回一个数组</p>
 
-    val: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    val: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span> {</span>
         <span class="hljs-keyword">var</span> el = <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>];
 
         <span class="hljs-keyword">if</span> (!el) <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
@@ -528,9 +657,30 @@ mix(node, {
                     el.value = val;
                 });
         }
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p><strong> .text() </strong></p>
+<ul>
+<li><p>.text()</p>
+<p>获取符合选择器的第一个元素所包含的文本值</p>
+</li>
+<li><p>.val(text)</p>
+<p>给符合选择器的所有元素设置文本值</p>
+</li>
+</ul>
 
-    text: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(text)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    text: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(text)</span> {</span>
         <span class="hljs-keyword">return</span> <span class="hljs-built_in">arguments</span>.length ?
             each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
                 el.textContent = (text === <span class="hljs-literal">undefined</span>) ? <span class="hljs-string">''</span> : <span class="hljs-string">''</span> + text
