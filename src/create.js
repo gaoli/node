@@ -24,6 +24,11 @@ var div        = doc.createElement('div'),
 
 mix(node, {
 
+    // ** .create() **
+    //
+    // * .create(html, props)
+    //
+    //  创建 dom 节点
     create: function(html, props) {
         var key,
             ret = [],
@@ -57,6 +62,17 @@ mix(node, {
         return ret;
     },
 
+    // ** .html() **
+    //
+    // * .html()
+    //
+    //  获取符合选择器的第一个元素的 innerHTML
+    //
+    // * .html(html[, loadScripts])
+    //
+    //  给符合选择器的所有元素设置 innerHTML 值
+    //
+    //  loadScripts 表示是否执行 html 中的内嵌脚本，默认 false
     html: function(html, loadScripts) {
         return arguments.length ?
             each(this, function(el) {
@@ -65,18 +81,33 @@ mix(node, {
             this.length ? this[0].textContent : null;
     },
 
+    // ** .remove() **
+    //
+    // * .remove()
+    //
+    //  将符合选择器的所有元素从 DOM 中移除
     remove: function() {
         return each(this, function(el) {
             el.parentNode && el.parentNode.removeChild(el)
         });
     },
 
+    // ** .empty() **
+    //
+    // * .empty()
+    //
+    //  清除节点的所有子孙节点
     empty: function() {
         return each(this, function(el) {
             el.innerHTML = '';
         });
     },
 
+    // ** .clone() **
+    //
+    // * .clone()
+    //
+    //  获取符合选择器的第一个元素的克隆元素
     clone: function() {
         return this.map(function(el) {
             return el.cloneNode(true);

@@ -1225,9 +1225,27 @@ each([<span class="hljs-string">'scrollTop'</span>, <span class="hljs-string">'s
         td   : tableRow
     };
 
-mix(node, {
+mix(node, {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p><strong> .create() </strong></p>
+<ul>
+<li><p>.create(html, props)</p>
+<p>创建 dom 节点</p>
+</li>
+</ul>
 
-    create: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(html, props)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    create: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(html, props)</span> {</span>
         <span class="hljs-keyword">var</span> key,
             ret = [],
             tag,
@@ -1258,29 +1276,105 @@ mix(node, {
         }
 
         <span class="hljs-keyword">return</span> ret;
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p><strong> .html() </strong></p>
+<ul>
+<li><p>.html()</p>
+<p>获取符合选择器的第一个元素的 innerHTML</p>
+</li>
+<li><p>.html(html[, loadScripts])</p>
+<p>给符合选择器的所有元素设置 innerHTML 值</p>
+<p>loadScripts 表示是否执行 html 中的内嵌脚本，默认 false</p>
+</li>
+</ul>
 
-    html: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(html, loadScripts)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    html: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(html, loadScripts)</span> {</span>
         <span class="hljs-keyword">return</span> <span class="hljs-built_in">arguments</span>.length ?
             each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
                 $(el).empty().append(html, loadScripts);
             }) :
             <span class="hljs-keyword">this</span>.length ? <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>].textContent : <span class="hljs-literal">null</span>;
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p><strong> .remove() </strong></p>
+<ul>
+<li><p>.remove()</p>
+<p>将符合选择器的所有元素从 DOM 中移除</p>
+</li>
+</ul>
 
-    remove: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    remove: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
         <span class="hljs-keyword">return</span> each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             el.parentNode &amp;&amp; el.parentNode.removeChild(el)
         });
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p><strong> .empty() </strong></p>
+<ul>
+<li><p>.empty()</p>
+<p>清除节点的所有子孙节点</p>
+</li>
+</ul>
 
-    empty: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    empty: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
         <span class="hljs-keyword">return</span> each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             el.innerHTML = <span class="hljs-string">''</span>;
         });
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p><strong> .clone() </strong></p>
+<ul>
+<li><p>.clone()</p>
+<p>获取符合选择器的第一个元素的克隆元素</p>
+</li>
+</ul>
 
-    clone: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    clone: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
         <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             <span class="hljs-keyword">return</span> el.cloneNode(<span class="hljs-literal">true</span>);
         });
