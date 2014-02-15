@@ -764,6 +764,11 @@ function nth(el, filter, property, includeSelf) {
 
 mix(node, {
 
+    // ** .item() **
+    //
+    // * .item(index)
+    //
+    //  获取包含当前节点列表 index 位置处的单个原生节点的新 NodeList 对象
     item: function(index) {
         var self = this;
 
@@ -774,26 +779,56 @@ mix(node, {
             $(index);
     },
 
+    // ** .first() **
+    //
+    // * .first([filter])
+    //
+    //  获取符合选择器的第一个元素的第一个子节点
     first: function(filter) {
         return nth(this[0] && this[0].firstChild, filter, 'nextElementSibling', true);
     },
 
+    // ** .last() **
+    //
+    // * .last([filter])
+    //
+    //  获取符合选择器的第一个元素的最后一个子节点
     last: function(filter) {
         return nth(this[0] && this[0].lastChild, filter, 'previousElementSibling', true);
     },
 
+    // ** .next() **
+    //
+    // * .next([filter])
+    //
+    //  获取符合选择器的第一个元素的下一个同级节点
     next: function(filter) {
         return nth(this[0], filter, 'nextElementSibling');
     },
 
+    // ** .prev() **
+    //
+    // * .prev([filter])
+    //
+    //  获取符合选择器的第一个元素的上一个同级节点
     prev: function(filter) {
         return nth(this[0], filter, 'previousElementSibling');
     },
 
+    // ** .parent() **
+    //
+    // * .parent([filter])
+    //
+    //  获取符合选择器的第一个元素的祖先元素
     parent: function(filter) {
         return nth(this[0], filter, 'parentNode');
     },
 
+    // ** .children() **
+    //
+    // * .children([filter])
+    //
+    //  获取符合选择器的所有非文字节点的子节点
     children: function(selector) {
         var el = this[0];
 
@@ -802,6 +837,11 @@ mix(node, {
             this;
     },
 
+    // ** .siblings() **
+    //
+    // * .siblings([filter])
+    //
+    //  获取符合选择器的第一个元素的相应同级节点
     siblings: function(selector) {
         var el = this[0];
 
@@ -814,6 +854,11 @@ mix(node, {
             this;
     },
 
+    // ** .contents() **
+    //
+    // * .contents()
+    //
+    //  获取符合选择器的所有子节点（包括文字节点）
     contents: function() {
         var el = this[0];
 
@@ -822,6 +867,11 @@ mix(node, {
             this;
     },
 
+    // ** .contains() **
+    //
+    // * .contains(contained)
+    //
+    //  判断某一容器（container）是否包含另一（contained）节点.
     contains: function(contained) {
         return some.call(this, function(el) {
             return el !== contained && el.contains(el);

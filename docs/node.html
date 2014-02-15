@@ -921,9 +921,27 @@ each([<span class="hljs-string">'width'</span>, <span class="hljs-string">'heigh
         ret.item(<span class="hljs-number">0</span>);
 }
 
-mix(node, {
+mix(node, {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p><strong> .item() </strong></p>
+<ul>
+<li><p>.item(index)</p>
+<p>获取包含当前节点列表 index 位置处的单个原生节点的新 NodeList 对象</p>
+</li>
+</ul>
 
-    item: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(index)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    item: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(index)</span> {</span>
         <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>;
 
         <span class="hljs-keyword">return</span> isNumber(index) ?
@@ -931,37 +949,163 @@ mix(node, {
                 <span class="hljs-literal">null</span> :
                 $(self[index]) :
             $(index);
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p><strong> .first() </strong></p>
+<ul>
+<li><p>.first([filter])</p>
+<p>获取符合选择器的第一个元素的第一个子节点</p>
+</li>
+</ul>
 
-    first: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(filter)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    first: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(filter)</span> {</span>
         <span class="hljs-keyword">return</span> nth(<span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>] &amp;&amp; <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>].firstChild, filter, <span class="hljs-string">'nextElementSibling'</span>, <span class="hljs-literal">true</span>);
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p><strong> .last() </strong></p>
+<ul>
+<li><p>.last([filter])</p>
+<p>获取符合选择器的第一个元素的最后一个子节点</p>
+</li>
+</ul>
 
-    last: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(filter)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    last: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(filter)</span> {</span>
         <span class="hljs-keyword">return</span> nth(<span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>] &amp;&amp; <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>].lastChild, filter, <span class="hljs-string">'previousElementSibling'</span>, <span class="hljs-literal">true</span>);
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p><strong> .next() </strong></p>
+<ul>
+<li><p>.next([filter])</p>
+<p>获取符合选择器的第一个元素的下一个同级节点</p>
+</li>
+</ul>
 
-    next: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(filter)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    next: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(filter)</span> {</span>
         <span class="hljs-keyword">return</span> nth(<span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>], filter, <span class="hljs-string">'nextElementSibling'</span>);
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p><strong> .prev() </strong></p>
+<ul>
+<li><p>.prev([filter])</p>
+<p>获取符合选择器的第一个元素的上一个同级节点</p>
+</li>
+</ul>
 
-    prev: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(filter)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    prev: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(filter)</span> {</span>
         <span class="hljs-keyword">return</span> nth(<span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>], filter, <span class="hljs-string">'previousElementSibling'</span>);
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p><strong> .parent() </strong></p>
+<ul>
+<li><p>.parent([filter])</p>
+<p>获取符合选择器的第一个元素的祖先元素</p>
+</li>
+</ul>
 
-    parent: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(filter)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    parent: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(filter)</span> {</span>
         <span class="hljs-keyword">return</span> nth(<span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>], filter, <span class="hljs-string">'parentNode'</span>);
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p><strong> .children() </strong></p>
+<ul>
+<li><p>.children([filter])</p>
+<p>获取符合选择器的所有非文字节点的子节点</p>
+</li>
+</ul>
 
-    children: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(selector)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    children: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(selector)</span> {</span>
         <span class="hljs-keyword">var</span> el = <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>];
 
         <span class="hljs-keyword">return</span> el ?
             filtered(children(el), selector) :
             <span class="hljs-keyword">this</span>;
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p><strong> .siblings() </strong></p>
+<ul>
+<li><p>.siblings([filter])</p>
+<p>获取符合选择器的第一个元素的相应同级节点</p>
+</li>
+</ul>
 
-    siblings: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(selector)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    siblings: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(selector)</span> {</span>
         <span class="hljs-keyword">var</span> el = <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>];
 
         <span class="hljs-keyword">return</span> el ?
@@ -971,17 +1115,53 @@ mix(node, {
                 })
             , selector) :
             <span class="hljs-keyword">this</span>;
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p><strong> .contents() </strong></p>
+<ul>
+<li><p>.contents()</p>
+<p>获取符合选择器的所有子节点（包括文字节点）</p>
+</li>
+</ul>
 
-    contents: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    contents: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
         <span class="hljs-keyword">var</span> el = <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>];
 
         <span class="hljs-keyword">return</span> el ?
             $(slice.call(el.childNodes)) :
             <span class="hljs-keyword">this</span>;
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p><strong> .contains() </strong></p>
+<ul>
+<li><p>.contains(contained)</p>
+<p>判断某一容器（container）是否包含另一（contained）节点.</p>
+</li>
+</ul>
 
-    contains: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(contained)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    contains: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(contained)</span> {</span>
         <span class="hljs-keyword">return</span> some.call(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             <span class="hljs-keyword">return</span> el !== contained &amp;&amp; el.contains(el);
         });
@@ -1039,11 +1219,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-13">
+        <li id="section-23">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
+                <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
               <p><strong> .wrapAll() </strong></p>
 <ul>
@@ -1076,11 +1256,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-14">
+        <li id="section-24">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
+                <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
               <p><strong> .wrap() </strong></p>
 <ul>
@@ -1105,11 +1285,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-15">
+        <li id="section-25">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+                <a class="pilcrow" href="#section-25">&#182;</a>
               </div>
               <p><strong> .unwrap() </strong></p>
 <ul>
@@ -1132,11 +1312,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-16">
+        <li id="section-26">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
+                <a class="pilcrow" href="#section-26">&#182;</a>
               </div>
               <p><strong> .wrapInner() </strong></p>
 <ul>
@@ -1163,11 +1343,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-17">
+        <li id="section-27">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
+                <a class="pilcrow" href="#section-27">&#182;</a>
               </div>
               <p><strong> .replaceWith() </strong></p>
 <ul>
@@ -1187,11 +1367,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-18">
+        <li id="section-28">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-18">&#182;</a>
+                <a class="pilcrow" href="#section-28">&#182;</a>
               </div>
               <p><strong> .after() </strong></p>
 <ul>
@@ -1276,11 +1456,11 @@ each([<span class="hljs-string">'after'</span>, <span class="hljs-string">'prepe
         </li>
         
         
-        <li id="section-19">
+        <li id="section-29">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
+                <a class="pilcrow" href="#section-29">&#182;</a>
               </div>
               <p><strong> .insertAfter() </strong></p>
 <ul>
@@ -1326,11 +1506,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-20">
+        <li id="section-30">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
+                <a class="pilcrow" href="#section-30">&#182;</a>
               </div>
               <p><strong> .offset() </strong></p>
 <ul>
@@ -1363,11 +1543,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-21">
+        <li id="section-31">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-21">&#182;</a>
+                <a class="pilcrow" href="#section-31">&#182;</a>
               </div>
               <p><strong> .scrollTop() </strong></p>
 <ul>
@@ -1445,11 +1625,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-22">
+        <li id="section-32">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-22">&#182;</a>
+                <a class="pilcrow" href="#section-32">&#182;</a>
               </div>
               <p><strong> .create() </strong></p>
 <ul>
@@ -1496,11 +1676,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-23">
+        <li id="section-33">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-23">&#182;</a>
+                <a class="pilcrow" href="#section-33">&#182;</a>
               </div>
               <p><strong> .html() </strong></p>
 <ul>
@@ -1526,11 +1706,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-24">
+        <li id="section-34">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
+                <a class="pilcrow" href="#section-34">&#182;</a>
               </div>
               <p><strong> .remove() </strong></p>
 <ul>
@@ -1550,11 +1730,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-25">
+        <li id="section-35">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
+                <a class="pilcrow" href="#section-35">&#182;</a>
               </div>
               <p><strong> .empty() </strong></p>
 <ul>
@@ -1574,11 +1754,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-26">
+        <li id="section-36">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-26">&#182;</a>
+                <a class="pilcrow" href="#section-36">&#182;</a>
               </div>
               <p><strong> .clone() </strong></p>
 <ul>
