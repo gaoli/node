@@ -46,6 +46,19 @@ function getDefaultDisplay(tagName) {
 
 mix(node, {
 
+    // ** .css() **
+    //
+    // * .css(name)
+    //
+    //  获取符合选择器的第一个元素的样式值
+    //
+    // * .css(name, val)
+    //
+    //  给符合选择器的所有元素设置样式值
+    //
+    // * .css(kv)
+    //
+    //  给符合选择器的所有元素设置样式值
     css: function(name, val) {
         var key,
             ret = '';
@@ -69,6 +82,11 @@ mix(node, {
         });
     },
 
+    // ** .show() **
+    //
+    // * .show()
+    //
+    //  显示符合选择器的所有元素
     show: function() {
         return each(this, function(el) {
             el.style.display == 'none' && (el.style.display = '');
@@ -78,10 +96,20 @@ mix(node, {
         });
     },
 
+    // ** .hide() **
+    //
+    // * .hide()
+    //
+    //  隐藏符合选择器的所有元素
     hide: function() {
         return this.css('display', 'none');
     },
 
+    // ** .toggle() **
+    //
+    // * .toggle()
+    //
+    //  将符合选择器的所有元素切换显示/隐藏两个状态
     toggle: function() {
         return each(this, function(el) {
             var $el = $(el);
