@@ -51,6 +51,10 @@
             $('#J_Test').remove();
         });
 
+        it('isNode', function() {
+            expect(S.Node.isNode($a)).to.equal(true);
+        });
+
         describe('#one()', function() {
 
             it('should return correctly for no-exist', function() {

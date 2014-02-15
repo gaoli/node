@@ -194,6 +194,8 @@ $.node = <span class="hljs-function"><span class="hljs-keyword">function</span><
     <span class="hljs-keyword">return</span> els;
 };
 
+$.node.prototype = node;
+
 $.isNode = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(obj)</span> {</span>
     <span class="hljs-keyword">return</span> obj <span class="hljs-keyword">instanceof</span> $.node;
 };

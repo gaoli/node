@@ -162,6 +162,8 @@ $.node = function(els) {
     return els;
 };
 
+$.node.prototype = node;
+
 $.isNode = function(obj) {
     return obj instanceof $.node;
 };
