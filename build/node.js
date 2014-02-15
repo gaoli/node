@@ -1077,6 +1077,11 @@ each(['after', 'prepend', 'before', 'append'], function(method, index) {
 
 mix(node, {
 
+    // ** .offset() **
+    //
+    // * .offset()
+    //
+    //  获取符合选择器的第一个元素相对页面文档左上角的偏移值
     offset: function() {
         var ret = null,
             obj;
@@ -1096,6 +1101,25 @@ mix(node, {
 
 });
 
+// ** .scrollTop() **
+//
+// * .scrollTop()
+//
+//  获取窗口或元素的 scrollTop 值
+//
+// * .scrollTop(val)
+//
+//  设置窗口或元素的 scrollTop 值
+//
+// ** .scrollLeft() **
+//
+// * .scrollLeft()
+//
+//  获取窗口或元素的 scrollLeft 值
+//
+// * .scrollLeft(val)
+//
+//  设置窗口或元素的 scrollLeft 值
 each(['scrollTop', 'scrollLeft'], function(method, index) {
 
     node[method] = function(val) {

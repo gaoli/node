@@ -1321,9 +1321,27 @@ each([<span class="hljs-string">'after'</span>, <span class="hljs-string">'prepe
  * @author 莫争 &lt;gaoli.gl@taobao.com&gt;
  */</span>
 
-mix(node, {
+mix(node, {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p><strong> .offset() </strong></p>
+<ul>
+<li><p>.offset()</p>
+<p>获取符合选择器的第一个元素相对页面文档左上角的偏移值</p>
+</li>
+</ul>
 
-    offset: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    offset: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
         <span class="hljs-keyword">var</span> ret = <span class="hljs-literal">null</span>,
             obj;
 
@@ -1340,9 +1358,39 @@ mix(node, {
         <span class="hljs-keyword">return</span> ret;
     }
 
-});
+});</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p><strong> .scrollTop() </strong></p>
+<ul>
+<li><p>.scrollTop()</p>
+<p>获取窗口或元素的 scrollTop 值</p>
+</li>
+<li><p>.scrollTop(val)</p>
+<p>设置窗口或元素的 scrollTop 值</p>
+</li>
+</ul>
+<p><strong> .scrollLeft() </strong></p>
+<ul>
+<li><p>.scrollLeft()</p>
+<p>获取窗口或元素的 scrollLeft 值</p>
+</li>
+<li><p>.scrollLeft(val)</p>
+<p>设置窗口或元素的 scrollLeft 值</p>
+</li>
+</ul>
 
-each([<span class="hljs-string">'scrollTop'</span>, <span class="hljs-string">'scrollLeft'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(method, index)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>each([<span class="hljs-string">'scrollTop'</span>, <span class="hljs-string">'scrollLeft'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(method, index)</span> {</span>
 
     node[method] = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(val)</span> {</span>
         <span class="hljs-keyword">var</span> el        = <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>],
@@ -1397,11 +1445,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-20">
+        <li id="section-22">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
+                <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
               <p><strong> .create() </strong></p>
 <ul>
@@ -1448,11 +1496,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-21">
+        <li id="section-23">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-21">&#182;</a>
+                <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
               <p><strong> .html() </strong></p>
 <ul>
@@ -1478,11 +1526,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-22">
+        <li id="section-24">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-22">&#182;</a>
+                <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
               <p><strong> .remove() </strong></p>
 <ul>
@@ -1502,11 +1550,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-23">
+        <li id="section-25">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-23">&#182;</a>
+                <a class="pilcrow" href="#section-25">&#182;</a>
               </div>
               <p><strong> .empty() </strong></p>
 <ul>
@@ -1526,11 +1574,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-24">
+        <li id="section-26">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
+                <a class="pilcrow" href="#section-26">&#182;</a>
               </div>
               <p><strong> .clone() </strong></p>
 <ul>
