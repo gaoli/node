@@ -133,11 +133,6 @@
                 $checkbox2.hasProp('no-exist').should.be.false;
             });
 
-            it('should remove correctly', function() {
-                $checkbox2.removeProp('checked');
-                ($checkbox2.prop('checked') + 0).should.be.NaN;
-            });
-
         });
 
     });
