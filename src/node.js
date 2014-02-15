@@ -42,6 +42,8 @@ var $ = function(selector, context) {
             } else {
                 ret = query(selector, doc);
             }
+        } else if ($.isNode(selector)) {
+            return selector;
         } else {
             if (selector.nodeType || selector.setTimeout) {
                 ret = [selector];

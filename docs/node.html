@@ -166,6 +166,8 @@ mix(node, {
             } <span class="hljs-keyword">else</span> {
                 ret = query(selector, doc);
             }
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.isNode(selector)) {
+            <span class="hljs-keyword">return</span> selector;
         } <span class="hljs-keyword">else</span> {
             <span class="hljs-keyword">if</span> (selector.nodeType || selector.setTimeout) {
                 ret = [selector];
