@@ -512,16 +512,6 @@ mix(node, {
         });
     },
 
-    removeProp: function(name) {
-        return each(this, function(el) {
-            try {
-                el[name] = undefined;
-                delete el[name];
-            } catch (e) {
-            }
-        });
-    },
-
     // ** .val() **
     //
     // * .val()

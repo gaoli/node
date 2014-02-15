@@ -597,16 +597,6 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         <span class="hljs-keyword">return</span> some.call(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             <span class="hljs-keyword">return</span> isElement(el) &amp;&amp; el[name];
         });
-    },
-
-    removeProp: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span> {</span>
-        <span class="hljs-keyword">return</span> each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
-            <span class="hljs-keyword">try</span> {
-                el[name] = <span class="hljs-literal">undefined</span>;
-                <span class="hljs-keyword">delete</span> el[name];
-            } <span class="hljs-keyword">catch</span> (e) {
-            }
-        });
     },</pre></div></div>
             
         </li>
