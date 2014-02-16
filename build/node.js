@@ -1360,13 +1360,17 @@ mix(node, {
 
     // ** .clone() **
     //
-    // * .clone()
+    // * .clone([deep])
     //
     //  获取符合选择器的第一个元素的克隆元素
-    clone: function() {
-        return this.map(function(el) {
-            return el.cloneNode(true);
-        });
+    //
+    //  deep 表示是否深度克隆（克隆节点的子孙节点），默认 false
+    clone: function(deep) {
+        return $(
+            map(this, function(el) {
+                return el.cloneNode(!!deep);
+            })
+        );
     }
 
 });

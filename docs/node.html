@@ -1862,17 +1862,20 @@ el.html(html, <span class="hljs-literal">true</span>);
               </div>
               <p><strong> .clone() </strong></p>
 <ul>
-<li><p>.clone()</p>
+<li><p>.clone([deep])</p>
 <p>获取符合选择器的第一个元素的克隆元素</p>
+<p>deep 表示是否深度克隆（克隆节点的子孙节点），默认 false</p>
 </li>
 </ul>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    clone: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
-            <span class="hljs-keyword">return</span> el.cloneNode(<span class="hljs-literal">true</span>);
-        });
+            <div class="content"><div class='highlight'><pre>    clone: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(deep)</span> {</span>
+        <span class="hljs-keyword">return</span> $(
+            map(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
+                <span class="hljs-keyword">return</span> el.cloneNode(!!deep);
+            })
+        );
     }
 
 });
