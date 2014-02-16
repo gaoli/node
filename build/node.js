@@ -160,7 +160,7 @@ $.one = function(selector, context) {
 
 $.node = function(els) {
     els = els || [];
-    els.__proto__ = S.node;
+    els.__proto__ = node;
     return els;
 };
 
