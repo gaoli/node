@@ -55,6 +55,11 @@
             expect(S.Node.isNode($a)).to.equal(true);
         });
 
+        it('indexOf', function() {
+            expect($p.indexOf($p)).to.equal(0);
+            expect($p.indexOf($p[0])).to.equal(0);
+        });
+
         describe('#one()', function() {
 
             it('should return correctly for no-exist', function() {

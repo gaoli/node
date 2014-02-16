@@ -8,7 +8,18 @@ var node = {};
 
 mix(node, {
 
-    indexOf: indexOf,
+    // ** .indexOf() **
+    //
+    // * .indexOf(el)
+    //
+    //   逻辑类似 `Array.prototype.indexOf`
+    //
+    //   查找 el 在 els（元素列表）中的位置，el 类型可以是 Node，也可以是原生节点
+    indexOf: function(el) {
+        return likeArray(el) ?
+            indexOf.call(this, el[0]) :
+            indexOf.apply(this, arguments);
+    },
 
     // ** .each() **
     //
