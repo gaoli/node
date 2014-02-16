@@ -37,8 +37,8 @@ mix(node, {
     // ```
     // ```
     // S.node.create('<div></div>', {
-    //    text: 'ok',
-    //    css : {color: 'red'}
+    //     text: 'ok',
+    //     css : {color: 'red'}
     // }); //=> 创建 DIV 节点，内容为'ok'，颜色为红色
     // ```
     create: function(html, props) {
@@ -85,6 +85,7 @@ mix(node, {
     //  给符合选择器的所有元素设置 innerHTML 值
     //
     //  loadScripts 表示是否执行 html 中的内嵌脚本，默认 false
+    //
     // ```
     // var el   = S.node.create('<div id="J_check"></div>');
     // var html = [

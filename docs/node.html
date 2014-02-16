@@ -1441,7 +1441,20 @@ mix(node, {</pre></div></div>
 <p>在所有匹配元素外面包一层 HTML 结构</p>
 </li>
 </ul>
+<pre><code>&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">"container"</span>&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Goodbye<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 
+S.all('.inner').wrapAll('<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"new"</span> /&gt;</span>'); //=&gt;
+
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"container"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"new"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Goodbye<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></span>
+</code></pre>
             </div>
             
             <div class="content"><div class='highlight'><pre>    wrapAll: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(wrapperNode)</span> {</span>
@@ -1478,7 +1491,22 @@ mix(node, {</pre></div></div>
 <p>在每个匹配的元素外层包上一个 HTML 元素</p>
 </li>
 </ul>
+<pre><code>&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">"container"</span>&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Goodbye<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 
+S.all('.inner').wrap('<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"new"</span> /&gt;</span>'); //=&gt;
+
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"container"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"new"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"new"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Goodbye<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></span>
+</code></pre>
             </div>
             
             <div class="content"><div class='highlight'><pre>    wrap: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(wrapperNode)</span> {</span>
@@ -1507,7 +1535,22 @@ mix(node, {</pre></div></div>
 <p>移除集合中每个元素的直接父节点，并把他们的子元素保留在原来的位置</p>
 </li>
 </ul>
+<pre><code>&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">"container"</span>&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"new"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"new"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Goodbye<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 
+S.all('.inner').unwrap(); //=&gt;
+
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"container"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Goodbye<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></span>
+</code></pre>
             </div>
             
             <div class="content"><div class='highlight'><pre>    unwrap: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
@@ -1534,7 +1577,22 @@ mix(node, {</pre></div></div>
 <p>将每个元素中的内容包裹在一个单独的结构中</p>
 </li>
 </ul>
+<pre><code>&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">"container"</span>&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>Goodbye<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 
+S.all('.inner').wrapInner('<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"new"</span> /&gt;</span>'); //=&gt;
+
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"container"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"new"</span>&gt;</span>Hello<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"inner"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"new"</span>&gt;</span>Goodbye<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span></span>
+</code></pre>
             </div>
             
             <div class="content"><div class='highlight'><pre>    wrapInner: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(wrapperNode)</span> {</span>
@@ -1851,8 +1909,8 @@ mix(node, {</pre></div></div>
 S.node.create(<span class="hljs-string">'&lt;div /&gt;'</span>)
 S.node.create(<span class="hljs-string">'&lt;div&gt;&lt;/div&gt;'</span>) <span class="hljs-comment">//=&gt; 创建 DIV 节点</span>
 </code></pre><pre><code>S.node.create(<span class="hljs-string">'&lt;div&gt;&lt;/div&gt;'</span>, {
-   text: <span class="hljs-string">'ok'</span>,
-   css : {color: <span class="hljs-string">'red'</span>}
+    text: <span class="hljs-string">'ok'</span>,
+    css : {color: <span class="hljs-string">'red'</span>}
 }); <span class="hljs-comment">//=&gt; 创建 DIV 节点，内容为'ok'，颜色为红色</span>
 </code></pre>
             </div>
@@ -1907,10 +1965,12 @@ S.node.create(<span class="hljs-string">'&lt;div&gt;&lt;/div&gt;'</span>) <span 
 <li><p>.html(html[, loadScripts])</p>
 <p>给符合选择器的所有元素设置 innerHTML 值</p>
 <p>loadScripts 表示是否执行 html 中的内嵌脚本，默认 false</p>
+</li>
+</ul>
 <pre><code><span class="hljs-keyword">var</span> el   = S.node.create(<span class="hljs-string">'&lt;div id="J_check"&gt;&lt;/div&gt;'</span>);
 <span class="hljs-keyword">var</span> html = [
-  <span class="hljs-string">'&lt;h3&gt;This is the added part&lt;/h3&gt;'</span>,
-  <span class="hljs-string">'&lt;script&gt;alert(1)&lt;/script&gt;'</span>
+    <span class="hljs-string">'&lt;h3&gt;This is the added part&lt;/h3&gt;'</span>,
+    <span class="hljs-string">'&lt;script&gt;alert(1)&lt;/script&gt;'</span>
 ].join(<span class="hljs-string">''</span>);
 el.html(html);
 <span class="hljs-comment">//=&gt; 不会 alert(1)</span>
@@ -1918,9 +1978,7 @@ el.html();
 <span class="hljs-comment">//=&gt; &lt;h3&gt;This is the added part&lt;/h3&gt;</span>
 el.html(html, <span class="hljs-literal">true</span>);
 <span class="hljs-comment">//=&gt; alert(1)</span>
-</code></pre></li>
-</ul>
-
+</code></pre>
             </div>
             
             <div class="content"><div class='highlight'><pre>    html: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(html, loadScripts)</span> {</span>

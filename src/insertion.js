@@ -50,6 +50,22 @@ mix(node, {
     // * .wrapAll(wrapperNode)
     //
     //  在所有匹配元素外面包一层 HTML 结构
+    //
+    // ```
+    // <div class="container">
+    //     <div class="inner">Hello</div>
+    //     <div class="inner">Goodbye</div>
+    // </div>
+    //
+    // S.all('.inner').wrapAll('<div class="new" />'); //=>
+    //
+    // <div class="container">
+    //     <div class="new">
+    //         <div class="inner">Hello</div>
+    //         <div class="inner">Goodbye</div>
+    //     </div>
+    // </div>
+    // ```
     wrapAll: function(wrapperNode) {
         var el = this[0];
 
@@ -74,6 +90,24 @@ mix(node, {
     // * .wrap(wrapperNode)
     //
     //  在每个匹配的元素外层包上一个 HTML 元素
+    //
+    // ```
+    // <div class="container">
+    //     <div class="inner">Hello</div>
+    //     <div class="inner">Goodbye</div>
+    // </div>
+    //
+    // S.all('.inner').wrap('<div class="new" />'); //=>
+    //
+    // <div class="container">
+    //     <div class="new">
+    //         <div class="inner">Hello</div>
+    //     </div>
+    //     <div class="new">
+    //         <div class="inner">Goodbye</div>
+    //     </div>
+    // </div>
+    // ```
     wrap: function(wrapperNode) {
         var $wrapperNode = $(wrapperNode),
             wrapperClone = $wrapperNode[0].parentNode || this.length;
@@ -90,6 +124,24 @@ mix(node, {
     // * .unwrap()
     //
     //  移除集合中每个元素的直接父节点，并把他们的子元素保留在原来的位置
+    //
+    // ```
+    // <div class="container">
+    //     <div class="new">
+    //         <div class="inner">Hello</div>
+    //     </div>
+    //     <div class="new">
+    //         <div class="inner">Goodbye</div>
+    //     </div>
+    // </div>
+    //
+    // S.all('.inner').unwrap(); //=>
+    //
+    // <div class="container">
+    //     <div class="inner">Hello</div>
+    //     <div class="inner">Goodbye</div>
+    // </div>
+    // ```
     unwrap: function() {
         return each(this, function(el) {
             var $el     = $(el),
@@ -104,6 +156,24 @@ mix(node, {
     // * .wrapInner(wrapperNode)
     //
     //  将每个元素中的内容包裹在一个单独的结构中
+    //
+    // ```
+    // <div class="container">
+    //     <div class="inner">Hello</div>
+    //     <div class="inner">Goodbye</div>
+    // </div>
+    //
+    // S.all('.inner').wrapInner('<div class="new" />'); //=>
+    //
+    // <div class="container">
+    //     <div class="inner">
+    //         <div class="new">Hello</div>
+    //     </div>
+    //     <div class="inner">
+    //         <div class="new">Goodbye</div>
+    //     </div>
+    // </div>
+    // ```
     wrapInner: function(wrapperNode) {
         return each(this, function(el) {
             var $el       = $(el),
