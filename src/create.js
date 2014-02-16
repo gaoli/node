@@ -29,6 +29,18 @@ mix(node, {
     // * .create(html, props)
     //
     //  创建 dom 节点
+    //
+    // ```
+    // S.node.create('<div>')
+    // S.node.create('<div />')
+    // S.node.create('<div></div>') //=> 创建 DIV 节点
+    // ```
+    // ```
+    // S.node.create('<div></div>', {
+    //    text: 'ok',
+    //    css : {color: 'red'}
+    // }); //=> 创建 DIV 节点，内容为'ok'，颜色为红色
+    // ```
     create: function(html, props) {
         var key,
             ret = [],
@@ -73,6 +85,19 @@ mix(node, {
     //  给符合选择器的所有元素设置 innerHTML 值
     //
     //  loadScripts 表示是否执行 html 中的内嵌脚本，默认 false
+    // ```
+    // var el   = S.node.create('<div id="J_check"></div>');
+    // var html = [
+    //     '<h3>This is the added part</h3>',
+    //     '<script>alert(1)</script>'
+    // ].join('');
+    // el.html(html);
+    // //=> 不会 alert(1)
+    // el.html();
+    // //=> <h3>This is the added part</h3>
+    // el.html(html, true);
+    // //=> alert(1)
+    // ```
     html: function(html, loadScripts) {
         return arguments.length ?
             each(this, function(el) {

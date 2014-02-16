@@ -1719,7 +1719,14 @@ mix(node, {</pre></div></div>
 <p>创建 dom 节点</p>
 </li>
 </ul>
-
+<pre><code>S.node.create(<span class="hljs-string">'&lt;div&gt;'</span>)
+S.node.create(<span class="hljs-string">'&lt;div /&gt;'</span>)
+S.node.create(<span class="hljs-string">'&lt;div&gt;&lt;/div&gt;'</span>) <span class="hljs-comment">//=&gt; 创建 DIV 节点</span>
+</code></pre><pre><code>S.node.create(<span class="hljs-string">'&lt;div&gt;&lt;/div&gt;'</span>, {
+   text: <span class="hljs-string">'ok'</span>,
+   css : {color: <span class="hljs-string">'red'</span>}
+}); <span class="hljs-comment">//=&gt; 创建 DIV 节点，内容为'ok'，颜色为红色</span>
+</code></pre>
             </div>
             
             <div class="content"><div class='highlight'><pre>    create: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(html, props)</span> {</span>
@@ -1772,7 +1779,18 @@ mix(node, {</pre></div></div>
 <li><p>.html(html[, loadScripts])</p>
 <p>给符合选择器的所有元素设置 innerHTML 值</p>
 <p>loadScripts 表示是否执行 html 中的内嵌脚本，默认 false</p>
-</li>
+<pre><code><span class="hljs-keyword">var</span> el   = S.node.create(<span class="hljs-string">'&lt;div id="J_check"&gt;&lt;/div&gt;'</span>);
+<span class="hljs-keyword">var</span> html = [
+  <span class="hljs-string">'&lt;h3&gt;This is the added part&lt;/h3&gt;'</span>,
+  <span class="hljs-string">'&lt;script&gt;alert(1)&lt;/script&gt;'</span>
+].join(<span class="hljs-string">''</span>);
+el.html(html);
+<span class="hljs-comment">//=&gt; 不会 alert(1)</span>
+el.html();
+<span class="hljs-comment">//=&gt; &lt;h3&gt;This is the added part&lt;/h3&gt;</span>
+el.html(html, <span class="hljs-literal">true</span>);
+<span class="hljs-comment">//=&gt; alert(1)</span>
+</code></pre></li>
 </ul>
 
             </div>
