@@ -4,6 +4,11 @@
  * @author 莫争 <gaoli.gl@taobao.com>
  */
 
+// ** .filterScripts() **
+//
+// * .filterScripts(nodes, scripts)
+//
+//  内部方法，将 nodes 中的脚本节点过滤掉
 function filterScripts(nodes, scripts) {
     var ret = [];
 
@@ -29,6 +34,11 @@ function filterScripts(nodes, scripts) {
     return ret;
 }
 
+// ** .nodeListToFragment() **
+//
+// * .nodeListToFragment(nodes)
+//
+//  内部方法，将 nodes 转换为文档片段，不会被添加到文档树中
 function nodeListToFragment(nodes) {
     var ret = null;
 

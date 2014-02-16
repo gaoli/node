@@ -1905,9 +1905,27 @@ mix(node, {</pre></div></div>
  * @ignore
  * @file node-insertion
  * @author 莫争 &lt;gaoli.gl@taobao.com&gt;
- */</span>
+ */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-54">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-54">&#182;</a>
+              </div>
+              <p><strong> .filterScripts() </strong></p>
+<ul>
+<li><p>.filterScripts(nodes, scripts)</p>
+<p>内部方法，将 nodes 中的脚本节点过滤掉</p>
+</li>
+</ul>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterScripts</span><span class="hljs-params">(nodes, scripts)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filterScripts</span><span class="hljs-params">(nodes, scripts)</span> {</span>
     <span class="hljs-keyword">var</span> ret = [];
 
     each(nodes, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(node)</span> {</span>
@@ -1930,9 +1948,27 @@ mix(node, {</pre></div></div>
     });
 
     <span class="hljs-keyword">return</span> ret;
-}
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-55">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-55">&#182;</a>
+              </div>
+              <p><strong> .nodeListToFragment() </strong></p>
+<ul>
+<li><p>.nodeListToFragment(nodes)</p>
+<p>内部方法，将 nodes 转换为文档片段，不会被添加到文档树中</p>
+</li>
+</ul>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nodeListToFragment</span><span class="hljs-params">(nodes)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nodeListToFragment</span><span class="hljs-params">(nodes)</span> {</span>
     <span class="hljs-keyword">var</span> ret = <span class="hljs-literal">null</span>;
 
     <span class="hljs-keyword">if</span> (nodes &amp;&amp; likeArray(nodes)) {
@@ -1951,11 +1987,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-54">
+        <li id="section-56">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-54">&#182;</a>
+                <a class="pilcrow" href="#section-56">&#182;</a>
               </div>
               <p><strong> .wrapAll() </strong></p>
 <ul>
@@ -2001,11 +2037,11 @@ S.all('.inner').wrapAll('<span class="hljs-tag">&lt;<span class="hljs-title">div
         </li>
         
         
-        <li id="section-55">
+        <li id="section-57">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-55">&#182;</a>
+                <a class="pilcrow" href="#section-57">&#182;</a>
               </div>
               <p><strong> .wrap() </strong></p>
 <ul>
@@ -2045,11 +2081,11 @@ S.all('.inner').wrap('<span class="hljs-tag">&lt;<span class="hljs-title">div</s
         </li>
         
         
-        <li id="section-56">
+        <li id="section-58">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-56">&#182;</a>
+                <a class="pilcrow" href="#section-58">&#182;</a>
               </div>
               <p><strong> .unwrap() </strong></p>
 <ul>
@@ -2087,11 +2123,11 @@ S.all('.inner').unwrap(); //=&gt;
         </li>
         
         
-        <li id="section-57">
+        <li id="section-59">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-57">&#182;</a>
+                <a class="pilcrow" href="#section-59">&#182;</a>
               </div>
               <p><strong> .wrapInner() </strong></p>
 <ul>
@@ -2133,11 +2169,11 @@ S.all('.inner').wrapInner('<span class="hljs-tag">&lt;<span class="hljs-title">d
         </li>
         
         
-        <li id="section-58">
+        <li id="section-60">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-58">&#182;</a>
+                <a class="pilcrow" href="#section-60">&#182;</a>
               </div>
               <p><strong> .replaceWith() </strong></p>
 <ul>
@@ -2157,11 +2193,11 @@ S.all('.inner').wrapInner('<span class="hljs-tag">&lt;<span class="hljs-title">d
         </li>
         
         
-        <li id="section-59">
+        <li id="section-61">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-59">&#182;</a>
+                <a class="pilcrow" href="#section-61">&#182;</a>
               </div>
               <p><strong> .after() </strong></p>
 <ul>
@@ -2246,11 +2282,11 @@ each([<span class="hljs-string">'after'</span>, <span class="hljs-string">'prepe
         </li>
         
         
-        <li id="section-60">
+        <li id="section-62">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-60">&#182;</a>
+                <a class="pilcrow" href="#section-62">&#182;</a>
               </div>
               <p><strong> .insertAfter() </strong></p>
 <ul>
@@ -2296,11 +2332,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-61">
+        <li id="section-63">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-61">&#182;</a>
+                <a class="pilcrow" href="#section-63">&#182;</a>
               </div>
               <p><strong> .offset() </strong></p>
 <ul>
@@ -2333,11 +2369,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-62">
+        <li id="section-64">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-62">&#182;</a>
+                <a class="pilcrow" href="#section-64">&#182;</a>
               </div>
               <p><strong> .scrollTop() </strong></p>
 <ul>
@@ -2415,11 +2451,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-63">
+        <li id="section-65">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-63">&#182;</a>
+                <a class="pilcrow" href="#section-65">&#182;</a>
               </div>
               <p><strong> .create() </strong></p>
 <ul>
@@ -2473,11 +2509,11 @@ S.node.create(<span class="hljs-string">'&lt;div&gt;&lt;/div&gt;'</span>) <span 
         </li>
         
         
-        <li id="section-64">
+        <li id="section-66">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-64">&#182;</a>
+                <a class="pilcrow" href="#section-66">&#182;</a>
               </div>
               <p><strong> .html() </strong></p>
 <ul>
@@ -2514,11 +2550,11 @@ el.html(html, <span class="hljs-literal">true</span>);
         </li>
         
         
-        <li id="section-65">
+        <li id="section-67">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-65">&#182;</a>
+                <a class="pilcrow" href="#section-67">&#182;</a>
               </div>
               <p><strong> .remove() </strong></p>
 <ul>
@@ -2538,11 +2574,11 @@ el.html(html, <span class="hljs-literal">true</span>);
         </li>
         
         
-        <li id="section-66">
+        <li id="section-68">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-66">&#182;</a>
+                <a class="pilcrow" href="#section-68">&#182;</a>
               </div>
               <p><strong> .empty() </strong></p>
 <ul>
@@ -2562,11 +2598,11 @@ el.html(html, <span class="hljs-literal">true</span>);
         </li>
         
         
-        <li id="section-67">
+        <li id="section-69">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-67">&#182;</a>
+                <a class="pilcrow" href="#section-69">&#182;</a>
               </div>
               <p><strong> .clone() </strong></p>
 <ul>
@@ -2597,11 +2633,11 @@ el.html(html, <span class="hljs-literal">true</span>);
         </li>
         
         
-        <li id="section-68">
+        <li id="section-70">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-68">&#182;</a>
+                <a class="pilcrow" href="#section-70">&#182;</a>
               </div>
               <p><strong> Node 模块提供的快捷方式 </strong></p>
 <pre><code>mix(S, {
