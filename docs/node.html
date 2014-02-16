@@ -207,9 +207,27 @@ $.isNode = <span class="hljs-function"><span class="hljs-keyword">function</span
  * @author 莫争 &lt;gaoli.gl@taobao.com&gt;
  */</span>
 
-<span class="hljs-keyword">var</span> tempParent = document.createElement(<span class="hljs-string">'div'</span>);
+<span class="hljs-keyword">var</span> tempParent = document.createElement(<span class="hljs-string">'div'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p><strong> .find() </strong></p>
+<ul>
+<li><p>.find(selector, context)</p>
+<p>内部方法，在 context 范围内查找节点（增强版）</p>
+</li>
+</ul>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">find</span><span class="hljs-params">(selector, context)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">find</span><span class="hljs-params">(selector, context)</span> {</span>
     <span class="hljs-keyword">return</span> context.length === <span class="hljs-number">1</span> ?
         query(selector, context[<span class="hljs-number">0</span>]) :
         unique(
@@ -217,9 +235,27 @@ $.isNode = <span class="hljs-function"><span class="hljs-keyword">function</span
                 <span class="hljs-keyword">return</span> query(selector, el);
             })
         );
-}
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p><strong> .query() </strong></p>
+<ul>
+<li><p>.query(selector, context)</p>
+<p>内部方法，在 context 范围内查找节点</p>
+</li>
+</ul>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query</span><span class="hljs-params">(selector, context)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">query</span><span class="hljs-params">(selector, context)</span> {</span>
     <span class="hljs-keyword">var</span> s        = selector.charAt(<span class="hljs-number">0</span>), ret,
         maybeID  = s === <span class="hljs-string">'#'</span>,
         maybeCls = s === <span class="hljs-string">'.'</span>,
@@ -237,9 +273,27 @@ $.isNode = <span class="hljs-function"><span class="hljs-keyword">function</span
                     context.querySelectorAll(selector)
             )
         : [];
-}
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p><strong> .matches() </strong></p>
+<ul>
+<li><p>.matches(el, selector)</p>
+<p>内部方法，选择器匹配加速</p>
+</li>
+</ul>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">matches</span><span class="hljs-params">(el, selector)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">matches</span><span class="hljs-params">(el, selector)</span> {</span>
     <span class="hljs-keyword">if</span> (!el || !selector || !isElement(el)) {
         <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     }
@@ -272,9 +326,27 @@ mix(S, {
     query: query
 });
 
-mix(node, {
+mix(node, {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p><strong> .all() </strong></p>
+<ul>
+<li><p>.all(selector)</p>
+<p>给 <code>S.node</code> 参元类挂载 <code>.all()</code> 方法，推荐直接使用 <code>S.all()</code></p>
+</li>
+</ul>
 
-    all: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(selector)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    all: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(selector)</span> {</span>
         <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>,
             ret;
 
@@ -282,9 +354,27 @@ mix(node, {
         ret.__parent = self;
 
         <span class="hljs-keyword">return</span> ret;
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p><strong> .one() </strong></p>
+<ul>
+<li><p>.one(selector)</p>
+<p>给 <code>S.node</code> 参元类挂载 <code>.one()</code> 方法，推荐直接使用 <code>S.one()</code></p>
+</li>
+</ul>
 
-    one: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(selector)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    one: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(selector)</span> {</span>
         <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>,
             ret;
 
@@ -296,9 +386,27 @@ mix(node, {
         }
 
         <span class="hljs-keyword">return</span> ret;
-    },
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p><strong> .filter() </strong></p>
+<ul>
+<li><p>.filter(selector)</p>
+<p>给 <code>S.node</code> 参元类挂载 <code>.filter()</code> 方法，推荐直接使用 <code>els.filter()</code></p>
+</li>
+</ul>
 
-    filter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(selector)</span> {</span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    filter: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(selector)</span> {</span>
         <span class="hljs-keyword">if</span> (isFunction(selector)) {
             <span class="hljs-keyword">return</span> $(filter.call(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
                 <span class="hljs-keyword">return</span> selector.call(el, el);
@@ -342,11 +450,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-2">
+        <li id="section-8">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p><strong> .addClass() </strong></p>
 <ul>
@@ -376,11 +484,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-3">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p><strong> .removeClass() </strong></p>
 <ul>
@@ -414,11 +522,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-4">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <p><strong> .toggleClass() </strong></p>
 <ul>
@@ -443,11 +551,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-5">
+        <li id="section-11">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <p><strong> .hasClass() </strong></p>
 <ul>
@@ -509,11 +617,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-6">
+        <li id="section-12">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
               <p><strong> .attr() </strong></p>
 <ul>
@@ -575,11 +683,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-7">
+        <li id="section-13">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
               <p><strong> .removeAttr() </strong></p>
 <ul>
@@ -599,11 +707,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-8">
+        <li id="section-14">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+                <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
               <p><strong> .hasAttr() </strong></p>
 <ul>
@@ -624,11 +732,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-9">
+        <li id="section-15">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+                <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
               <p><strong> .prop() </strong></p>
 <ul>
@@ -657,11 +765,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-10">
+        <li id="section-16">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
+                <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
               <p><strong> .hasProp() </strong></p>
 <ul>
@@ -683,11 +791,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-11">
+        <li id="section-17">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
+                <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
               <p><strong> .val() </strong></p>
 <ul>
@@ -733,11 +841,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-12">
+        <li id="section-18">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
+                <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
               <p><strong> .text() </strong></p>
 <ul>
@@ -781,11 +889,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-13">
+        <li id="section-19">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
+                <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
               <p><strong> .camelCase() </strong></p>
 <ul>
@@ -807,11 +915,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-14">
+        <li id="section-20">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
+                <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
               <p><strong> .maybeAddPx() </strong></p>
 <ul>
@@ -830,11 +938,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-15">
+        <li id="section-21">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+                <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
               <p><strong> .getComputedStyle() </strong></p>
 <ul>
@@ -852,11 +960,11 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         </li>
         
         
-        <li id="section-16">
+        <li id="section-22">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
+                <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
               <p><strong> .getDefaultDisplay() </strong></p>
 <ul>
@@ -887,11 +995,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-17">
+        <li id="section-23">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
+                <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
               <p><strong> .css() </strong></p>
 <ul>
@@ -943,11 +1051,11 @@ el.css({
         </li>
         
         
-        <li id="section-18">
+        <li id="section-24">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-18">&#182;</a>
+                <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
               <p><strong> .show() </strong></p>
 <ul>
@@ -970,11 +1078,11 @@ el.css({
         </li>
         
         
-        <li id="section-19">
+        <li id="section-25">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
+                <a class="pilcrow" href="#section-25">&#182;</a>
               </div>
               <p><strong> .hide() </strong></p>
 <ul>
@@ -992,11 +1100,11 @@ el.css({
         </li>
         
         
-        <li id="section-20">
+        <li id="section-26">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
+                <a class="pilcrow" href="#section-26">&#182;</a>
               </div>
               <p><strong> .toggle() </strong></p>
 <ul>
@@ -1020,11 +1128,11 @@ el.css({
         </li>
         
         
-        <li id="section-21">
+        <li id="section-27">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-21">&#182;</a>
+                <a class="pilcrow" href="#section-27">&#182;</a>
               </div>
               <p><strong> .width() </strong></p>
 <ul>
@@ -1136,11 +1244,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-22">
+        <li id="section-28">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-22">&#182;</a>
+                <a class="pilcrow" href="#section-28">&#182;</a>
               </div>
               <p><strong> .item() </strong></p>
 <ul>
@@ -1164,11 +1272,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-23">
+        <li id="section-29">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-23">&#182;</a>
+                <a class="pilcrow" href="#section-29">&#182;</a>
               </div>
               <p><strong> .first() </strong></p>
 <ul>
@@ -1186,11 +1294,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-24">
+        <li id="section-30">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
+                <a class="pilcrow" href="#section-30">&#182;</a>
               </div>
               <p><strong> .last() </strong></p>
 <ul>
@@ -1208,11 +1316,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-25">
+        <li id="section-31">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
+                <a class="pilcrow" href="#section-31">&#182;</a>
               </div>
               <p><strong> .next() </strong></p>
 <ul>
@@ -1230,11 +1338,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-26">
+        <li id="section-32">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-26">&#182;</a>
+                <a class="pilcrow" href="#section-32">&#182;</a>
               </div>
               <p><strong> .prev() </strong></p>
 <ul>
@@ -1252,11 +1360,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-27">
+        <li id="section-33">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-27">&#182;</a>
+                <a class="pilcrow" href="#section-33">&#182;</a>
               </div>
               <p><strong> .parent() </strong></p>
 <ul>
@@ -1274,11 +1382,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-28">
+        <li id="section-34">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-28">&#182;</a>
+                <a class="pilcrow" href="#section-34">&#182;</a>
               </div>
               <p><strong> .children() </strong></p>
 <ul>
@@ -1300,11 +1408,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-29">
+        <li id="section-35">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-29">&#182;</a>
+                <a class="pilcrow" href="#section-35">&#182;</a>
               </div>
               <p><strong> .siblings() </strong></p>
 <ul>
@@ -1330,11 +1438,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-30">
+        <li id="section-36">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-30">&#182;</a>
+                <a class="pilcrow" href="#section-36">&#182;</a>
               </div>
               <p><strong> .contents() </strong></p>
 <ul>
@@ -1356,11 +1464,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-31">
+        <li id="section-37">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-31">&#182;</a>
+                <a class="pilcrow" href="#section-37">&#182;</a>
               </div>
               <p><strong> .contains() </strong></p>
 <ul>
@@ -1429,11 +1537,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-32">
+        <li id="section-38">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-32">&#182;</a>
+                <a class="pilcrow" href="#section-38">&#182;</a>
               </div>
               <p><strong> .wrapAll() </strong></p>
 <ul>
@@ -1479,11 +1587,11 @@ S.all('.inner').wrapAll('<span class="hljs-tag">&lt;<span class="hljs-title">div
         </li>
         
         
-        <li id="section-33">
+        <li id="section-39">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-33">&#182;</a>
+                <a class="pilcrow" href="#section-39">&#182;</a>
               </div>
               <p><strong> .wrap() </strong></p>
 <ul>
@@ -1523,11 +1631,11 @@ S.all('.inner').wrap('<span class="hljs-tag">&lt;<span class="hljs-title">div</s
         </li>
         
         
-        <li id="section-34">
+        <li id="section-40">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-34">&#182;</a>
+                <a class="pilcrow" href="#section-40">&#182;</a>
               </div>
               <p><strong> .unwrap() </strong></p>
 <ul>
@@ -1565,11 +1673,11 @@ S.all('.inner').unwrap(); //=&gt;
         </li>
         
         
-        <li id="section-35">
+        <li id="section-41">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-35">&#182;</a>
+                <a class="pilcrow" href="#section-41">&#182;</a>
               </div>
               <p><strong> .wrapInner() </strong></p>
 <ul>
@@ -1611,11 +1719,11 @@ S.all('.inner').wrapInner('<span class="hljs-tag">&lt;<span class="hljs-title">d
         </li>
         
         
-        <li id="section-36">
+        <li id="section-42">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-36">&#182;</a>
+                <a class="pilcrow" href="#section-42">&#182;</a>
               </div>
               <p><strong> .replaceWith() </strong></p>
 <ul>
@@ -1635,11 +1743,11 @@ S.all('.inner').wrapInner('<span class="hljs-tag">&lt;<span class="hljs-title">d
         </li>
         
         
-        <li id="section-37">
+        <li id="section-43">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-37">&#182;</a>
+                <a class="pilcrow" href="#section-43">&#182;</a>
               </div>
               <p><strong> .after() </strong></p>
 <ul>
@@ -1724,11 +1832,11 @@ each([<span class="hljs-string">'after'</span>, <span class="hljs-string">'prepe
         </li>
         
         
-        <li id="section-38">
+        <li id="section-44">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-38">&#182;</a>
+                <a class="pilcrow" href="#section-44">&#182;</a>
               </div>
               <p><strong> .insertAfter() </strong></p>
 <ul>
@@ -1774,11 +1882,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-39">
+        <li id="section-45">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-39">&#182;</a>
+                <a class="pilcrow" href="#section-45">&#182;</a>
               </div>
               <p><strong> .offset() </strong></p>
 <ul>
@@ -1811,11 +1919,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-40">
+        <li id="section-46">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-40">&#182;</a>
+                <a class="pilcrow" href="#section-46">&#182;</a>
               </div>
               <p><strong> .scrollTop() </strong></p>
 <ul>
@@ -1893,11 +2001,11 @@ mix(node, {</pre></div></div>
         </li>
         
         
-        <li id="section-41">
+        <li id="section-47">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-41">&#182;</a>
+                <a class="pilcrow" href="#section-47">&#182;</a>
               </div>
               <p><strong> .create() </strong></p>
 <ul>
@@ -1951,11 +2059,11 @@ S.node.create(<span class="hljs-string">'&lt;div&gt;&lt;/div&gt;'</span>) <span 
         </li>
         
         
-        <li id="section-42">
+        <li id="section-48">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-42">&#182;</a>
+                <a class="pilcrow" href="#section-48">&#182;</a>
               </div>
               <p><strong> .html() </strong></p>
 <ul>
@@ -1992,11 +2100,11 @@ el.html(html, <span class="hljs-literal">true</span>);
         </li>
         
         
-        <li id="section-43">
+        <li id="section-49">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-43">&#182;</a>
+                <a class="pilcrow" href="#section-49">&#182;</a>
               </div>
               <p><strong> .remove() </strong></p>
 <ul>
@@ -2016,11 +2124,11 @@ el.html(html, <span class="hljs-literal">true</span>);
         </li>
         
         
-        <li id="section-44">
+        <li id="section-50">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-44">&#182;</a>
+                <a class="pilcrow" href="#section-50">&#182;</a>
               </div>
               <p><strong> .empty() </strong></p>
 <ul>
@@ -2040,11 +2148,11 @@ el.html(html, <span class="hljs-literal">true</span>);
         </li>
         
         
-        <li id="section-45">
+        <li id="section-51">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-45">&#182;</a>
+                <a class="pilcrow" href="#section-51">&#182;</a>
               </div>
               <p><strong> .clone() </strong></p>
 <ul>
