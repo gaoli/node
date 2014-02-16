@@ -1,3 +1,43 @@
+// ### API Delete
+// ---
+
+// | API                  | KISSY                | KISSY-MINI           |
+// |:-------------------- |:--------------------:|:--------------------:|
+// | test                 | √                    | ╳                    |
+// | replaceClass         | √                    | ╳                    |
+// | style                | √                    | ╳                    |
+// | innerWidth           | √                    | ╳                    |
+// | innerHeight          | √                    | ╳                    |
+// | outerWidth           | √                    | ╳                    |
+// | outerHeight          | √                    | ╳                    |
+// | addStyleSheet        | √                    | ╳                    |
+// | docHeight            | √                    | ╳                    |
+// | docWidth             | √                    | ╳                    |
+// | viewportHeight       | √                    | ╳                    |
+// | viewportWidth        | √                    | ╳                    |
+// | scrollIntoView       | √                    | ╳                    |
+// | unselectable         | √                    | ╳                    |
+// | nodeName             | √                    | ╳                    |
+// | outerHTML            | √                    | ╳                    |
+
+// ### API TODO
+// ---
+
+// | API                  | KISSY                | KISSY-MINI           |
+// |:-------------------- |:--------------------:|:--------------------:|
+// | data                 | √                    | ╳                    |
+// | removeData           | √                    | ╳                    |
+// | hasData              | √                    | ╳                    |
+
+// ### KISSY VS KISSY-MINI
+// ---
+
+// | KISSY                | KISSY-MINI           | Note                 |
+// |:-------------------- |:--------------------:|:--------------------:|
+// | S.DOM.css(el, name)  | S.all(el).css(name)  | 只支持链式写法         |
+// | S.DOM.parent(el, 2)  | ╳                    | 不支持指定层级         |
+// | S.DOM.clone()        |                      | 只支持元素复制         |
+
 ;(function(global, S) {
 
 /**
