@@ -165,9 +165,12 @@ mix(node, {
     //
     //  判断某一容器（container）是否包含另一（contained）节点
     contains: function(contained) {
-        return some.call(this, function(el) {
-            return el !== contained && el.contains(el);
-        });
+        var container = this[0],
+            contained = likeArray(contained) ? contained[0] : contained;
+
+        return container && contained ?
+            container !== contained && container.contains(contained) :
+            false;
     }
 
 });

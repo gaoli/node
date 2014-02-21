@@ -145,6 +145,13 @@
             $p.contents().length.should.equal(6);
             $p.item(2).contents().length.should.equal(0);
         });
+
+        it('contains', function() {
+            $p.contains($p).should.equal(false);
+            $p.contains($span).should.equal(true);
+            $p.contains($span[4]).should.equal(false);
+            $p.contains().should.equal(false);
+        });
     });
 
 })(KISSY, KISSY.all);

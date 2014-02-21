@@ -56,7 +56,7 @@ function isElement(node) {
 }
 
 function likeArray(nodes) {
-    return typeof nodes.length == 'number';
+    return nodes && typeof nodes.length == 'number';
 }
 
 function unique(array) {

@@ -336,7 +336,7 @@
 }
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">likeArray</span><span class="hljs-params">(nodes)</span> {</span>
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> nodes.length == <span class="hljs-string">'number'</span>;
+    <span class="hljs-keyword">return</span> nodes &amp;&amp; <span class="hljs-keyword">typeof</span> nodes.length == <span class="hljs-string">'number'</span>;
 }
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">unique</span><span class="hljs-params">(array)</span> {</span>
@@ -1894,9 +1894,12 @@ mix(node, {</pre></div></div>
             </div>
             
             <div class="content"><div class='highlight'><pre>    contains: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(contained)</span> {</span>
-        <span class="hljs-keyword">return</span> some.call(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
-            <span class="hljs-keyword">return</span> el !== contained &amp;&amp; el.contains(el);
-        });
+        <span class="hljs-keyword">var</span> container = <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>],
+            contained = likeArray(contained) ? contained[<span class="hljs-number">0</span>] : contained;
+
+        <span class="hljs-keyword">return</span> container &amp;&amp; contained ?
+            container !== contained &amp;&amp; container.contains(contained) :
+            <span class="hljs-literal">false</span>;
     }
 
 });
