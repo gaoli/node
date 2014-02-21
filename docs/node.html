@@ -1290,15 +1290,23 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
  */</span>
 
 <span class="hljs-keyword">var</span> cssNumber = {
-        columnCount: <span class="hljs-number">1</span>,
-        columns    : <span class="hljs-number">1</span>,
-        fontWeight : <span class="hljs-number">1</span>,
-        lineHeight : <span class="hljs-number">1</span>,
-        opacity    : <span class="hljs-number">1</span>,
-        zIndex     : <span class="hljs-number">1</span>,
-        zoom       : <span class="hljs-number">1</span>
+        <span class="hljs-string">'column-count'</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">'columns'</span>     : <span class="hljs-number">1</span>,
+        <span class="hljs-string">'font-weight'</span> : <span class="hljs-number">1</span>,
+        <span class="hljs-string">'line-height'</span> : <span class="hljs-number">1</span>,
+        <span class="hljs-string">'opacity'</span>     : <span class="hljs-number">1</span>,
+        <span class="hljs-string">'z-index'</span>     : <span class="hljs-number">1</span>,
+        <span class="hljs-string">'zoom'</span>        : <span class="hljs-number">1</span>
     },
-    elDisplay = {};</pre></div></div>
+    elDisplay = {};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dasherize</span><span class="hljs-params">(str)</span> {</span>
+    <span class="hljs-keyword">return</span> str.replace(<span class="hljs-regexp">/::/g</span>, <span class="hljs-string">'/'</span>)
+              .replace(<span class="hljs-regexp">/([A-Z]+)([A-Z][a-z])/g</span>, <span class="hljs-string">'$1_$2'</span>)
+              .replace(<span class="hljs-regexp">/([a-z\d])([A-Z])/g</span>, <span class="hljs-string">'$1_$2'</span>)
+              .replace(<span class="hljs-regexp">/_/g</span>, <span class="hljs-string">'-'</span>)
+              .toLowerCase();
+}</pre></div></div>
             
         </li>
         
@@ -1346,7 +1354,7 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">maybeAddPx</span><span class="hljs-params">(name, val)</span> {</span>
-    <span class="hljs-keyword">return</span> isNumber(val) &amp;&amp; !cssNumber[camelCase(name)] ? val + <span class="hljs-string">'px'</span> : val;
+    <span class="hljs-keyword">return</span> isNumber(val) &amp;&amp; !cssNumber[dasherize(name)] ? val + <span class="hljs-string">'px'</span> : val;
 }</pre></div></div>
             
         </li>
@@ -1450,11 +1458,11 @@ el.css({
                 <span class="hljs-keyword">return</span> el ? el.style[camelCase(name)] || getComputedStyle(el, name) : <span class="hljs-string">''</span>;
             } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isObject(name)) {
                 <span class="hljs-keyword">for</span> (key <span class="hljs-keyword">in</span> name) {
-                    ret += key + <span class="hljs-string">':'</span> + maybeAddPx(key, name[key]) + <span class="hljs-string">';'</span>;
+                    ret += dasherize(key) + <span class="hljs-string">':'</span> + maybeAddPx(key, name[key]) + <span class="hljs-string">';'</span>;
                 }
             }
         } <span class="hljs-keyword">else</span> {
-            ret = name + <span class="hljs-string">':'</span> + maybeAddPx(name, val) + <span class="hljs-string">';'</span>;
+            ret = dasherize(name) + <span class="hljs-string">':'</span> + maybeAddPx(name, val) + <span class="hljs-string">';'</span>;
         }
 
         <span class="hljs-keyword">return</span> each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>

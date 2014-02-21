@@ -755,15 +755,23 @@ mix(node, {
  */
 
 var cssNumber = {
-        columnCount: 1,
-        columns    : 1,
-        fontWeight : 1,
-        lineHeight : 1,
-        opacity    : 1,
-        zIndex     : 1,
-        zoom       : 1
+        'column-count': 1,
+        'columns'     : 1,
+        'font-weight' : 1,
+        'line-height' : 1,
+        'opacity'     : 1,
+        'z-index'     : 1,
+        'zoom'        : 1
     },
     elDisplay = {};
+
+function dasherize(str) {
+    return str.replace(/::/g, '/')
+              .replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
+              .replace(/([a-z\d])([A-Z])/g, '$1_$2')
+              .replace(/_/g, '-')
+              .toLowerCase();
+}
 
 // ** .camelCase() **
 //
@@ -791,7 +799,7 @@ function camelCase(name) {
 // .maybeAddPx('width', 12); //=> '12px'
 // ```
 function maybeAddPx(name, val) {
-    return isNumber(val) && !cssNumber[camelCase(name)] ? val + 'px' : val;
+    return isNumber(val) && !cssNumber[dasherize(name)] ? val + 'px' : val;
 }
 
 // ** .getComputedStyle() **
@@ -861,11 +869,11 @@ mix(node, {
                 return el ? el.style[camelCase(name)] || getComputedStyle(el, name) : '';
             } else if (isObject(name)) {
                 for (key in name) {
-                    ret += key + ':' + maybeAddPx(key, name[key]) + ';';
+                    ret += dasherize(key) + ':' + maybeAddPx(key, name[key]) + ';';
                 }
             }
         } else {
-            ret = name + ':' + maybeAddPx(name, val) + ';';
+            ret = dasherize(name) + ':' + maybeAddPx(name, val) + ';';
         }
 
         return each(this, function(el) {
