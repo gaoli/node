@@ -56,6 +56,15 @@ mix(node, {
     //   可以在一个语句内对不同层次得节点集合进行不同的操作
     end: function() {
         return this.__parent || this;
+    },
+
+    // ** .getDOMNode() **
+    //
+    // * .getDOMNode()
+    //
+    //   得到该 Node 对象包含的第一个原生节点
+    getDOMNode: function() {
+        return this[0]
     }
 
 });

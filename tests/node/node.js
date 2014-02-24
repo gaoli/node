@@ -60,6 +60,10 @@
             expect($p.indexOf($p[0])).to.equal(0);
         });
 
+        it('getDOMNode', function() {
+            $p.getDOMNode().id.should.equal('J_TestP_1');
+        });
+
         describe('#one()', function() {
 
             it('should return correctly for no-exist', function() {
