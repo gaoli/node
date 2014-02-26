@@ -48,7 +48,6 @@
 
 var win   = window,
     doc   = document,
-    body  = doc.body,
     docEl = doc.documentElement;
 
 var emptyArray = [],
@@ -830,7 +829,7 @@ function getDefaultDisplay(tagName) {
         var el = doc.createElement(tagName),
             display;
 
-        body.appendChild(el);
+        doc.body.appendChild(el);
         display = getComputedStyle(el, 'display');
         el.parentNode.removeChild(el);
         display == 'none' && (display = 'block');

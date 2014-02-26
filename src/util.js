@@ -6,7 +6,6 @@
 
 var win   = window,
     doc   = document,
-    body  = doc.body,
     docEl = doc.documentElement;
 
 var emptyArray = [],

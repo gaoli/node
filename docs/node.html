@@ -286,7 +286,6 @@
 
 <span class="hljs-keyword">var</span> win   = window,
     doc   = document,
-    body  = doc.body,
     docEl = doc.documentElement;
 
 <span class="hljs-keyword">var</span> emptyArray = [],
@@ -1424,7 +1423,7 @@ el.prop(<span class="hljs-string">'checked'</span>) <span class="hljs-comment">/
         <span class="hljs-keyword">var</span> el = doc.createElement(tagName),
             display;
 
-        body.appendChild(el);
+        doc.body.appendChild(el);
         display = getComputedStyle(el, <span class="hljs-string">'display'</span>);
         el.parentNode.removeChild(el);
         display == <span class="hljs-string">'none'</span> &amp;&amp; (display = <span class="hljs-string">'block'</span>);
