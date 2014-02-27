@@ -2375,21 +2375,47 @@ mix(node, {</pre></div></div>
 <li><p>.offset()</p>
 <p>获取符合选择器的第一个元素相对页面文档左上角的偏移值</p>
 </li>
+<li><p>.offset(coordinates)</p>
+<p>给符合选择器的所有元素设置偏移值</p>
+</li>
 </ul>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    offset: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
-        <span class="hljs-keyword">var</span> ret = <span class="hljs-literal">null</span>,
-            obj;
+            <div class="content"><div class='highlight'><pre>    offset: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(coordinates)</span> {</span>
+        <span class="hljs-keyword">var</span> ret;
 
         <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.length) {
-            obj = <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>].getBoundingClientRect();
-            ret = {
-                left  : obj.left + win.pageXOffset,
-                top   : obj.top + win.pageYOffset,
-                width : <span class="hljs-built_in">Math</span>.round(obj.width),
-                height: <span class="hljs-built_in">Math</span>.round(obj.height)
+            <span class="hljs-keyword">if</span> (coordinates === <span class="hljs-literal">undefined</span>) {
+                <span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>].getBoundingClientRect();
+
+                ret = {
+                    left  : obj.left + win.pageXOffset,
+                    top   : obj.top  + win.pageYOffset,
+                    width : <span class="hljs-built_in">Math</span>.round(obj.width),
+                    height: <span class="hljs-built_in">Math</span>.round(obj.height)
+                }
+            } <span class="hljs-keyword">else</span> {
+                each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
+                    <span class="hljs-keyword">var</span> ret = {},
+                        $el = $(el),
+                        old = $el.offset(),
+                        key,
+                        current;
+
+                    <span class="hljs-keyword">if</span> ($el.css(<span class="hljs-string">'position'</span>) === <span class="hljs-string">'static'</span>) {
+                        $el.css(<span class="hljs-string">'position'</span>, <span class="hljs-string">'relative'</span>);
+                    }
+
+                    <span class="hljs-keyword">for</span> (key <span class="hljs-keyword">in</span> coordinates) {
+                        current  = <span class="hljs-built_in">parseFloat</span>($el.css(key)) || <span class="hljs-number">0</span>;
+                        ret[key] = current + coordinates[key] - old[key];
+                    }
+
+                    $el.css(ret);
+                });
+
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
             }
         }
 

@@ -1493,17 +1493,44 @@ mix(node, {
     // * .offset()
     //
     //  获取符合选择器的第一个元素相对页面文档左上角的偏移值
-    offset: function() {
-        var ret = null,
-            obj;
+    //
+    // * .offset(coordinates)
+    //
+    //  给符合选择器的所有元素设置偏移值
+    offset: function(coordinates) {
+        var ret;
 
         if (this.length) {
-            obj = this[0].getBoundingClientRect();
-            ret = {
-                left  : obj.left + win.pageXOffset,
-                top   : obj.top + win.pageYOffset,
-                width : Math.round(obj.width),
-                height: Math.round(obj.height)
+            if (coordinates === undefined) {
+                var obj = this[0].getBoundingClientRect();
+
+                ret = {
+                    left  : obj.left + win.pageXOffset,
+                    top   : obj.top  + win.pageYOffset,
+                    width : Math.round(obj.width),
+                    height: Math.round(obj.height)
+                }
+            } else {
+                each(this, function(el) {
+                    var ret = {},
+                        $el = $(el),
+                        old = $el.offset(),
+                        key,
+                        current;
+
+                    if ($el.css('position') === 'static') {
+                        $el.css('position', 'relative');
+                    }
+
+                    for (key in coordinates) {
+                        current  = parseFloat($el.css(key)) || 0;
+                        ret[key] = current + coordinates[key] - old[key];
+                    }
+
+                    $el.css(ret);
+                });
+
+                return this;
             }
         }
 
