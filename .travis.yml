@@ -4,7 +4,12 @@ node_js:
   - 0.10
 
 install:
-  - npm install -g mocha-phantomjs
+  - npm install mocha-phantomjs
 
 script:
-  - mocha-phantomjs tests/runner.html
+  - node_modules/.bin/mocha-phantomjs tests/runner.html
+
+after_success:
+  - npm install jscoverage coveralls
+  - node_modules/.bin/jscoverage --encoding=utf8 build build
+  - node_modules/.bin/mocha-phantomjs tests/runner.html -R json-cov | node_modules/.bin/coveralls
