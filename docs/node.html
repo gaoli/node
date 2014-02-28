@@ -965,20 +965,22 @@ mix(node, {</pre></div></div>
               </div>
               <p><strong> .toggleClass() </strong></p>
 <ul>
-<li><p>.toggleClass(names)</p>
-<p>操作符合选择器的所有元素, 如果存在值为 names 的 class, 则移除掉, 反之添加</p>
+<li><p>.toggleClass(names[, when])</p>
+<p>操作符合选择器的所有元素，如果存在值为 names 的 class，则移除掉，反之添加</p>
+<p>如果 when 的值为真，这个功能类似于 <code>.addClass()</code> 方法，如果为假，这个功能类似与 <code>.removeClass()</code> 方法</p>
 </li>
 </ul>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    toggleClass: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(names)</span> {</span>
+            <div class="content"><div class='highlight'><pre>    toggleClass: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(names, when)</span> {</span>
         <span class="hljs-keyword">if</span> (!names) <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
         <span class="hljs-keyword">return</span> each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
             <span class="hljs-keyword">var</span> $el = $(el);
 
             each(classSplit(names), <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(name)</span> {</span>
-                $el.hasClass(name) ? $el.removeClass(name) : $el.addClass(name)
+                (when === <span class="hljs-literal">undefined</span> ? !$el.hasClass(name) : when) ?
+                    $el.addClass(name) : $el.removeClass(name);
             });
         });
     },</pre></div></div>

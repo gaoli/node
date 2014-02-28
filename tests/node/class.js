@@ -42,6 +42,10 @@
             $a.hasClass('link2').should.be.false;
             $a.toggleClass('.link2');
             $a.hasClass('link2').should.be.true;
+            $a.toggleClass('.link2', true);
+            $a.hasClass('link2').should.be.true;
+            $a.toggleClass('.link2', false);
+            $a.hasClass('link2').should.be.false;
         });
 
         it('hasClass', function() {

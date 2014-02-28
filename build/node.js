@@ -512,16 +512,19 @@ mix(node, {
 
     // ** .toggleClass() **
     //
-    // * .toggleClass(names)
+    // * .toggleClass(names[, when])
     //
-    //  操作符合选择器的所有元素, 如果存在值为 names 的 class, 则移除掉, 反之添加
-    toggleClass: function(names) {
+    //  操作符合选择器的所有元素，如果存在值为 names 的 class，则移除掉，反之添加
+    //
+    //  如果 when 的值为真，这个功能类似于 `.addClass()` 方法，如果为假，这个功能类似与 `.removeClass()` 方法
+    toggleClass: function(names, when) {
         if (!names) return this;
         return each(this, function(el) {
             var $el = $(el);
 
             each(classSplit(names), function(name) {
-                $el.hasClass(name) ? $el.removeClass(name) : $el.addClass(name)
+                (when === undefined ? !$el.hasClass(name) : when) ?
+                    $el.addClass(name) : $el.removeClass(name);
             });
         });
     },
