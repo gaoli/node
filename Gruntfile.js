@@ -23,6 +23,7 @@ module.exports = function(grunt) {
                     '<%= opt.src %>/insertion.js',
                     '<%= opt.src %>/offset.js',
                     '<%= opt.src %>/create.js',
+                    '<%= opt.src %>/ie.js',
                     '<%= opt.src %>/output.js',
                     '<%= opt.src %>/footer.snippet'
                 ],

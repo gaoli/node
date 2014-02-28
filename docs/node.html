@@ -2686,7 +2686,7 @@ el.html(html, <span class="hljs-literal">true</span>);
 
 <span class="hljs-comment">/**
  * @ignore
- * @file output
+ * @file ie
  * @author 莫争 &lt;gaoli.gl@taobao.com&gt;
  */</span></pre></div></div>
             
@@ -2698,6 +2698,38 @@ el.html(html, <span class="hljs-literal">true</span>);
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-71">&#182;</a>
+              </div>
+              <p>IE10 及以下浏览器不支持 <code>__proto__</code> 继承，需重写 <code>.node()</code> 和 <code>.isNode()</code> 方法来兼容</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">if</span> (!(<span class="hljs-string">'__proto__'</span> <span class="hljs-keyword">in</span> {})) {
+    mix($, {
+        node: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(els)</span> {</span>
+            els = els || [];
+            mix(els, node);
+            els.__node = <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">return</span> els;
+        },
+        isNode: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(obj)</span> {</span>
+            <span class="hljs-keyword">return</span> isArray(obj) &amp;&amp; <span class="hljs-string">'__node'</span> <span class="hljs-keyword">in</span> obj;
+        }
+    });
+}
+<span class="hljs-comment">/**
+ * @ignore
+ * @file output
+ * @author 莫争 &lt;gaoli.gl@taobao.com&gt;
+ */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-72">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-72">&#182;</a>
               </div>
               <p><strong> Node 模块提供的快捷方式 </strong></p>
 <pre><code>mix(S, {
