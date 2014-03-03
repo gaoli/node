@@ -750,11 +750,13 @@ mix(node, {
     //
     //  给符合选择器的所有元素设置文本值
     text: function(text) {
-        return arguments.length ?
+        return text === undefined ?
+            this.length ?
+                this[0].textContent : null
+            :
             each(this, function(el) {
                 el.textContent = (text === undefined) ? '' : '' + text
-            }) :
-            this.length ? this[0].textContent : null;
+            });
     }
 
 });
@@ -1689,11 +1691,12 @@ mix(node, {
     // //=> alert(1)
     // ```
     html: function(html, loadScripts) {
-        return arguments.length ?
+        return html === undefined ?
+            this.length ? this[0].innerHTML : null
+            :
             each(this, function(el) {
                 $(el).empty().append(html, loadScripts);
-            }) :
-            this.length ? this[0].textContent : null;
+            });
     },
 
     // ** .remove() **

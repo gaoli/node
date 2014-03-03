@@ -100,11 +100,12 @@ mix(node, {
     // //=> alert(1)
     // ```
     html: function(html, loadScripts) {
-        return arguments.length ?
+        return html === undefined ?
+            this.length ? this[0].innerHTML : null
+            :
             each(this, function(el) {
                 $(el).empty().append(html, loadScripts);
-            }) :
-            this.length ? this[0].textContent : null;
+            });
     },
 
     // ** .remove() **

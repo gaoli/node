@@ -203,11 +203,13 @@ mix(node, {
     //
     //  给符合选择器的所有元素设置文本值
     text: function(text) {
-        return arguments.length ?
+        return text === undefined ?
+            this.length ?
+                this[0].textContent : null
+            :
             each(this, function(el) {
                 el.textContent = (text === undefined) ? '' : '' + text
-            }) :
-            this.length ? this[0].textContent : null;
+            });
     }
 
 });

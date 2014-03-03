@@ -105,18 +105,12 @@
 
         });
 
-        describe('#text()', function() {
-
-            it('should set correctly', function() {
-                $div.text('test-div-value');
-                $div.text().should.equal('test-div-value');
-            });
-
-            it('should get correctly', function() {
-                $div.html('<p>test</p><p>-div-</p><p>value</p>');
-                $div.text().should.equal('test-div-value');
-            });
-
+        it('text', function() {
+            $div.text('test-div-value');
+            $div.text().should.equal('test-div-value');
+            $div.html('<p>test</p><p>-div-</p><p>value</p>');
+            $div.text().should.equal('test-div-value');
+            $div.text(undefined).should.equal('test-div-value');
         });
 
         describe('#prop()', function() {
