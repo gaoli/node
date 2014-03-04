@@ -2629,10 +2629,7 @@ el.html(html, <span class="hljs-literal">true</span>);
             </div>
             
             <div class="content"><div class='highlight'><pre>    remove: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
-        <span class="hljs-keyword">return</span> each(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
-            el.parentNode &amp;&amp; el.parentNode.removeChild(el)
-        });
-    },</pre></div></div>
+        <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>;</pre></div></div>
             
         </li>
         
@@ -2642,6 +2639,26 @@ el.html(html, <span class="hljs-literal">true</span>);
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-69">&#182;</a>
+              </div>
+              <p>移除所有事件绑定</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        self.detach &amp;&amp; self.detach();
+
+        <span class="hljs-keyword">return</span> each(self, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(el)</span> {</span>
+            el.parentNode &amp;&amp; el.parentNode.removeChild(el)
+        });
+    },</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-70">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-70">&#182;</a>
               </div>
               <p><strong> .empty() </strong></p>
 <ul>
@@ -2661,11 +2678,11 @@ el.html(html, <span class="hljs-literal">true</span>);
         </li>
         
         
-        <li id="section-70">
+        <li id="section-71">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-70">&#182;</a>
+                <a class="pilcrow" href="#section-71">&#182;</a>
               </div>
               <p><strong> .clone() </strong></p>
 <ul>
@@ -2696,11 +2713,11 @@ el.html(html, <span class="hljs-literal">true</span>);
         </li>
         
         
-        <li id="section-71">
+        <li id="section-72">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-71">&#182;</a>
+                <a class="pilcrow" href="#section-72">&#182;</a>
               </div>
               <p>IE10 及以下浏览器不支持 <code>__proto__</code> 继承，需重写 <code>.node()</code> 和 <code>.isNode()</code> 方法来兼容</p>
 
@@ -2728,11 +2745,11 @@ el.html(html, <span class="hljs-literal">true</span>);
         </li>
         
         
-        <li id="section-72">
+        <li id="section-73">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-72">&#182;</a>
+                <a class="pilcrow" href="#section-73">&#182;</a>
               </div>
               <p><strong> Node 模块提供的快捷方式 </strong></p>
 <pre><code>mix(S, {

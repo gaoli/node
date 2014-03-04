@@ -1705,7 +1705,12 @@ mix(node, {
     //
     //  将符合选择器的所有元素从 DOM 中移除
     remove: function() {
-        return each(this, function(el) {
+        var self = this;
+
+        // 移除所有事件绑定
+        self.detach && self.detach();
+
+        return each(self, function(el) {
             el.parentNode && el.parentNode.removeChild(el)
         });
     },
