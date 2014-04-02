@@ -64,22 +64,14 @@
             $p.getDOMNode().id.should.equal('J_TestP_1');
         });
 
-        describe('#one()', function() {
-
-            it('should return correctly for no-exist', function() {
-                expect($().one()).to.equal(null);
-            });
-
-        });
-
         describe('#end()', function() {
 
-            it('should return correctly for all method', function() {
+            it('支持 .all() 方法', function() {
                 expect($p.__parent).to.equal(undefined);
                 $p.all('span').end().length.should.equal(3);
             });
 
-            it('should return correctly for one method', function() {
+            it('支持 .one() 方法', function() {
                 $p.one('span').end().length.should.equal(3);
             });
 
