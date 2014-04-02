@@ -56,47 +56,47 @@
 
         describe('#attr()', function() {
 
-            it('should return correctly for placeholder', function() {
+            it('支持 radio 标签', function() {
+                expect($radio.attr('radio')).to.equal(undefined);
+            });
+
+            it('支持 style 属性', function() {
+                $a.attr('style').should.be.a('string')
+            });
+
+            it('支持 readonly 属性', function() {
+                $input.attr('readonly').should.equal('readonly');
+            });
+
+            it('支持 placeholder 属性', function() {
                 $input.attr('placeholder', 'test-placeholder-value');
                 $input.attr('placeholder').should.equal('test-placeholder-value');
                 $input.attr('placeholder', '');
                 $input.attr('placeholder').should.equal('');
             });
 
-            it('should return correctly for readonly', function() {
-                $input.attr('readonly').should.equal('readonly');
-            });
-
-            it('should return correctly for radio', function() {
-                ($radio.attr('radio') + 0).should.be.NaN;
-            });
-
-            it('should return correctly for style', function() {
-                $a.attr('style').should.be.a('string')
-            });
-
-            it('should return undefined when get no-exist attribute', function() {
-                ($input.attr('no-exist') + 0).should.be.NaN;
+            it('属性不存在时，返回 undefined', function() {
+                expect($input.attr('no-exist')).to.equal(undefined);
             });
 
         });
 
         describe('#val()', function() {
 
-            it('should return correctly for input', function() {
+            it('支持 input 标签', function() {
                 $input.val().should.equal('test-input-value');
             });
 
-            it('should return correctly for textarea', function() {
+            it('支持 textarea 标签', function() {
                 $textarea.val().should.equal('test-textarea-value');
             });
 
-            it('should return correctly for radio', function() {
-//                $radio.val().should.equal('on');
-//                $radio2.val().should.equal('on');
+            it('支持 radio 标签', function() {
+                // $radio.val().should.equal('on');
+                // $radio2.val().should.equal('on');
             });
 
-            it('should return correctly for select', function() {
+            it('支持 select 标签', function() {
                 $select.val('3');
                 $select.val().should.equal('3');
                 $select2.val(['1', '3']);
@@ -115,14 +115,14 @@
 
         describe('#prop()', function() {
 
-            it('should set correctly', function() {
+            it('设值正常', function() {
                 $checkbox.prop('checked', true);
                 $checkbox.prop('checked').should.be.true;
             });
 
-            it('should get correctly', function() {
+            it('取值正常', function() {
                 $checkbox2.prop('checked').should.be.true;
-                ($checkbox2.prop('no-exist') + 0).should.be.NaN;
+                expect($checkbox2.prop('no-exist')).to.equal(undefined);
                 $checkbox2.hasProp('checked').should.be.true;
                 $checkbox2.hasProp('no-exist').should.be.false;
             });
