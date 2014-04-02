@@ -63,11 +63,11 @@
 
         describe('#item()', function() {
 
-            it('should return correctly for exist', function() {
+            it('获取元素正常', function() {
                 $p.item(0)[0].id.should.equal('J_TestP_1');
             });
 
-            it('should return correctly for no-exist', function() {
+            it('元素不存在时，返回 null', function() {
                 expect($p.item(100)).to.equal(null);
             });
 
