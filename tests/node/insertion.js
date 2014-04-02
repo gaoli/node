@@ -38,12 +38,14 @@
 
         var $a,
             $p,
+            $p3,
             $span;
 
         beforeEach(function() {
             $('body').append(tpl);
             $a    = $('.J_TestA');
             $p    = $('.J_TestP');
+            $p3   = $('#J_TestP_3');
             $span = $('.J_TestSpan');
         });
 
@@ -51,6 +53,24 @@
             $('#J_Test').remove();
         });
 
+        describe('#append()', function() {
+
+            it('支持字符类型', function() {
+                $p3.append('Hello, world.');
+                $p3.html().should.equal('Hello, world.');
+            });
+
+            it('支持数字类型', function() {
+                $p3.append(1);
+                $p3.html().should.equal('1');
+            });
+
+            it('支持 Node 类型', function() {
+                $p3.append($a);
+                $p3.children().length.should.equal($a.length);
+            });
+
+        });
 
         it('wrapAll', function() {
             $span.wrapAll('<div id="J_TestDiv"></div>');

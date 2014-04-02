@@ -244,7 +244,7 @@ each(['after', 'prepend', 'before', 'append'], function(method, index) {
     var inside = index % 2;
 
     node[method] = function(html, loadScripts) {
-        var nodes  = isString(html) ? node.create(html) : html,
+        var nodes  = $.isNode(html) ? html : node.create(html + ''),
             isCopy = this.length > 1,
             parent,
             target;
