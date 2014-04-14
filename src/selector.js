@@ -33,17 +33,21 @@ function query(selector, context) {
         nameOnly = maybeID || maybeCls ? selector.slice(1) : selector,
         isSimple = /^[\w-]*$/.test(nameOnly);
 
-    return isDocument(context) || isElement(context) ?
-        isDocument(context) && maybeID && isSimple ?
-            (ret = context.getElementById(nameOnly)) ? [ret] : [] :
-            slice.call(
-                !maybeID && isSimple ?
-                    maybeCls ?
-                        context.getElementsByClassName(nameOnly) :
-                        context.getElementsByTagName(selector) :
-                    context.querySelectorAll(selector)
-            )
-        : [];
+    context = context === undefined ? document : context;
+
+    return $(
+        isDocument(context) || isElement(context) ?
+            isDocument(context) && maybeID && isSimple ?
+                (ret = context.getElementById(nameOnly)) ? [ret] : [] :
+                slice.call(
+                    !maybeID && isSimple ?
+                        maybeCls ?
+                            context.getElementsByClassName(nameOnly) :
+                            context.getElementsByTagName(selector) :
+                        context.querySelectorAll(selector)
+                )
+            : []
+    );
 }
 
 // ** .matches() **

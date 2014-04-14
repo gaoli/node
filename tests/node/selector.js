@@ -70,8 +70,14 @@
                 S.query('#J_TestP a.J_TestA', doc).length.should.equal(1);
             });
 
-            it('当 context === null 时，返回 []', function() {
+            it('当 context === null 时，返回空的 Node 对象', function() {
                 S.query('J_TestSelector', null).length.should.equal(0);
+                S.Node.isNode(S.query('J_TestSelector', null)).should.equal(true);
+            });
+
+            it('当 context === undefined 时，缺省值为 document', function() {
+                S.query('#J_TestP')[0].id.should.equal('J_TestP');
+                S.query('#J_TestP').length.should.equal(1);
             });
 
         });

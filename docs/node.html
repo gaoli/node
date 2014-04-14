@@ -697,17 +697,21 @@ $.node.prototype = node;</pre></div></div>
         nameOnly = maybeID || maybeCls ? selector.slice(<span class="hljs-number">1</span>) : selector,
         isSimple = <span class="hljs-regexp">/^[\w-]*$/</span>.test(nameOnly);
 
-    <span class="hljs-keyword">return</span> isDocument(context) || isElement(context) ?
-        isDocument(context) &amp;&amp; maybeID &amp;&amp; isSimple ?
-            (ret = context.getElementById(nameOnly)) ? [ret] : [] :
-            slice.call(
-                !maybeID &amp;&amp; isSimple ?
-                    maybeCls ?
-                        context.getElementsByClassName(nameOnly) :
-                        context.getElementsByTagName(selector) :
-                    context.querySelectorAll(selector)
-            )
-        : [];
+    context = context === <span class="hljs-literal">undefined</span> ? document : context;
+
+    <span class="hljs-keyword">return</span> $(
+        isDocument(context) || isElement(context) ?
+            isDocument(context) &amp;&amp; maybeID &amp;&amp; isSimple ?
+                (ret = context.getElementById(nameOnly)) ? [ret] : [] :
+                slice.call(
+                    !maybeID &amp;&amp; isSimple ?
+                        maybeCls ?
+                            context.getElementsByClassName(nameOnly) :
+                            context.getElementsByTagName(selector) :
+                        context.querySelectorAll(selector)
+                )
+            : []
+    );
 }</pre></div></div>
             
         </li>
